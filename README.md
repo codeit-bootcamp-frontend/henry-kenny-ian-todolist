@@ -2,32 +2,31 @@
 
 ### tech stacks
 
-**Language**
+**Language**<br>
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-**Collaboration Tool**
+**Collaboration Tool**<br>
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
 
-**Package Management**
+**Package Management**<br>
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 
-**Version control**
-
+**Version control**<br>
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-**Bundler**
+**Bundler**<br>
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
-**Deploy**
+**Deploy**<br>
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 
-**Others**
+**Others**<br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## UI 디자인
@@ -55,19 +54,32 @@
 ## 컴포넌트
 
 - 헤더
+<img width="701" alt="image" src="https://user-images.githubusercontent.com/110705019/235569503-3da0a42a-b5b7-4f3b-8b6b-e475f0afb39c.png">
 
   - 로고
-  - 다크모드
-  - 토글
+  - 테마 토글 스위치
+  <img width="408" alt="image" src="https://user-images.githubusercontent.com/110705019/235569759-28d902e6-d4f4-4fe1-939c-b4b0ff588c04.png">
+
 
 - 메인
 
   - 프로그레스바
+  <img width="467" alt="image" src="https://user-images.githubusercontent.com/110705019/235569404-27c7edb9-634c-407a-bd3e-ad46a8d9a7a8.png">
+  
   - 할일 목록(할일 아이템 리스트 - overflow, scroll)
+  <img width="698" alt="image" src="https://user-images.githubusercontent.com/110705019/235569549-866bebc6-e2eb-4f1d-8a5e-f3777564bbcc.png">
+  
     - 할일 아이템 (input이 아니라 div로)
       - 버튼들(체크박스, 삭제, 수정)
+     <img width="401" alt="image" src="https://user-images.githubusercontent.com/110705019/235570240-5de8be49-bfd9-4163-9bd1-22516a643290.png">
+
   - 할일 목록 추가 버튼
+  
+    <img width="373" alt="image" src="https://user-images.githubusercontent.com/110705019/235569965-4964900d-0f8f-49f8-9075-33dbb2811d3e.png">
+
   - 모달창
+  <img width="697" alt="image" src="https://user-images.githubusercontent.com/110705019/235569667-f21a9b35-7616-46f0-a5c0-c610df6bad6e.png">
+
     - input으로 구현
     - 버튼들 (확인, 취소)
 
@@ -76,7 +88,11 @@
   - 추가/삭제/수정 버튼
     - 할일 아이템 버튼 (삭제, 수정)
     - 할일 목록 추가 버튼
+
+
   - 체크 박스 버튼
+
+
 
 ## TODO
 
