@@ -1,18 +1,12 @@
 import { useState } from "react";
-import ToggleSwitch from "./Components/Switch/ToggleSwitch";
 import { ThemeContext } from "./contexts/ThemeContext";
-import { useMediaQuery } from "react-responsive";
 import Button from "./Components/Button/Button";
 import Modal from "./Components/Modal/Modal";
-
+import Header from "./Components/Header/Header";
+import "./App.css";
 function App() {
   const [theme, setTheme] = useState("light");
   const [showModal, setShowModal] = useState(false);
-  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
-
-  const handleChange = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   const handleClickOpenModal = () => {
     setShowModal(true);
@@ -23,7 +17,8 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <Header></Header>
       <div
         style={{
           display: "flex",
@@ -48,11 +43,6 @@ function App() {
           Todo List
         </h1>
         <Button text={"+"} onClick={handleClickOpenModal} />
-        <ToggleSwitch
-          checked={theme === "light"}
-          onChange={handleChange}
-          isMobile={isMobile}
-        />
       </div>
       {showModal && <Modal onClose={handleClickCloseModal} />}
     </ThemeContext.Provider>
