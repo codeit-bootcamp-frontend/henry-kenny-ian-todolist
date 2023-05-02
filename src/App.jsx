@@ -4,6 +4,7 @@ import Button from "./Components/Button/Button";
 import Modal from "./Components/Modal/Modal";
 import Header from "./Components/Header/Header";
 import "./App.css";
+import TodoListItem from "./Components/TodoList/TodoListItem";
 function App() {
   const [theme, setTheme] = useState("light");
   const [showModal, setShowModal] = useState(false);
@@ -42,7 +43,7 @@ function App() {
         >
           Todo List
         </h1>
-        <Button text={"+"} onClick={handleClickOpenModal} />
+        <TodoListItem />
       </div>
       {showModal && <Modal onClose={handleClickCloseModal} />}
     </ThemeContext.Provider>
