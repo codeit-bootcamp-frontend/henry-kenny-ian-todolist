@@ -1,12 +1,60 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: "SCDream1";
+  src: url("assets/fonts/SCDream1.otf");
+}
 
-  --light-primary: #ececf1;
+@font-face {
+  font-family: "SCDream2";
+  src: url("assets/fonts/SCDream2.otf");
+}
+
+@font-face {
+  font-family: "SCDream3";
+  src: url("assets/fonts/SCDream3.otf");
+}
+
+@font-face {
+  font-family: "SCDream4";
+  src: url("assets/fonts/SCDream4.otf");
+}
+
+@font-face {
+  font-family: "SCDream5";
+  src: url("assets/fonts/SCDream5.otf");
+}
+
+@font-face {
+  font-family: "SCDream6";
+  src: url("assets/fonts/SCDream6.otf");
+}
+
+@font-face {
+  font-family: "SCDream7";
+  src: url("assets/fonts/SCDream7.otf");
+}
+
+@font-face {
+  font-family: "SCDream8";
+  src: url("assets/fonts/SCDream8.otf");
+}
+
+@font-face {
+  font-family: "SCDream9";
+  src: url("assets/fonts/SCDream9.otf");
+}
+
+:root {
+  font-family: "SCDream4";
+
+  --light-background: #ececf1;
+  --dark-background: #36393b;
+  --light-text: #767676;
+  --dark-text: #c1c1c1;
   --green: #15c714;
 }
 
 body {
-  background-color: var(--light-primary);
+  background-color: var(--light-background);
 }
 
 input,
@@ -17,7 +65,7 @@ button {
 
 a {
   text-decoration: none;
-  color: #575f6b;
+  color: inherit;
 }
 
 input:-webkit-autofill,
@@ -67,3 +115,16 @@ button:active {
   transform: scale(0.95);
   box-shadow: inset 2px 2px 4px #9d9d9d, inset -2px -2px 4px #ffffff;
 }
+
+/*
+ convex: 표면이 바둑돌 모양
+ concave: 표면이 움푹한 모양
+ default: 요소가 튀어나옴
+ pressed: 요소가 눌림
+*/
+
+/*
+  dark-mode: default: filter: drop-shadow(-4px -4px 10px rgba(113, 113, 113, 0.7)) drop-shadow(5px 5px 9px rgba(16, 16, 16, 0.61));
+             pressed: box-shadow: inset -5px -5px 10px rgba(113, 113, 113, 0.75), inset 5px 5px 10px rgba(16, 16, 16, 0.6);
+             background color: 
+*/
