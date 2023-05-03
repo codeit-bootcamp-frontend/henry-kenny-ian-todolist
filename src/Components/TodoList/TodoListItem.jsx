@@ -21,6 +21,8 @@ const TODO_BOX_STYLE = {
   borderRadius: "40px",
   background: "#ececf1",
   boxShadow: "inset 5px 5px 10px #d2d2d6,inset -5px -5px 10px #ffffff",
+  display: "flex",
+  alignItems: "center",
 };
 
 const TODO_LIST_ITEM_STYLE = {
@@ -28,22 +30,28 @@ const TODO_LIST_ITEM_STYLE = {
   gap: "23px",
 };
 
-const TodoListItem = () => {
-  const [todoText, setTodoText] = useState("");
-  const [checked, setChecked] = useState(false);
-
-  const toggleCheckBox = () => {
-    setChecked(!checked);
-  };
-
+const TodoListItem = ({ id, title, isComplete, onClickCheckBox }) => {
   const handleEdit = () => {};
 
   const handleDelete = () => {};
+
+  const handleClickCheckBox = (id) => {
+    onClickCheckBox(id);
+  };
+
   return (
     <div style={TODO_LIST_ITEM_STYLE}>
       <div style={TODO_BOX_STYLE}>
-        <CheckBox onClick={toggleCheckBox} checked={checked} />
-        <div>{todoText}</div>
+        <CheckBox
+          onClick={handleClickCheckBox}
+          checked={isComplete}
+          itemId={id}
+        />
+        <div
+          style={{ textIndent: "105px", fontSize: "24px", color: "#767676" }}
+        >
+          {title}
+        </div>
       </div>
       <Button
         src="assets/pencil.png"

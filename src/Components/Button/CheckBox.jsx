@@ -20,7 +20,7 @@ const PRESSED_SHADOW = {
   boxShadow: "inset 5px 5px 10px #cdcdd2,inset -5px -5px 10px #ffffff",
 };
 
-const CheckBox = ({ checked, onClick }) => {
+const CheckBox = ({ checked, onClick, itemId }) => {
   return (
     <button
       style={
@@ -28,7 +28,9 @@ const CheckBox = ({ checked, onClick }) => {
           ? { ...CHECKBOX_STYLE, ...PRESSED_SHADOW }
           : { ...CHECKBOX_STYLE, ...UNPRESSED_SHADOW }
       }
-      onClick={onClick}
+      onClick={() => {
+        onClick(itemId);
+      }}
     >
       {checked && (
         <img
