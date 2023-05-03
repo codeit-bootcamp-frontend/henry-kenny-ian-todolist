@@ -9,7 +9,6 @@ const CHECKBOX_STYLE = {
   position: "absolute",
   top: "17px",
   left: "28px",
-  zIndex: "10",
 };
 
 const UNPRESSED_SHADOW = {

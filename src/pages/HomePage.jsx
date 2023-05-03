@@ -4,6 +4,7 @@ import Modal from "../Components/Modal/Modal";
 import Header from "../Components/Header/Header";
 import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
+import Button from "../Components/Button/Button";
 
 const LISTS = [
   {
@@ -44,6 +45,21 @@ const TODOLIST_CONTAINER = {
   margin: "0 auto",
 };
 
+const ADD_BUTTON = {
+  width: "300px",
+  height: "80px",
+  margin: "0 auto",
+  filter:
+    "drop-shadow(-4px -4px 20px #FFFFFF) drop-shadow(3px 3px 20px rgba(36, 65, 93, 0.302))",
+  background: "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
+  border: "none",
+  borderRadius: "40px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "46px",
+};
+
 const HomePage = ({ userInfo }) => {
   const [theme, setTheme] = useState("light");
   const [showModal, setShowModal] = useState(false);
@@ -77,7 +93,13 @@ const HomePage = ({ userInfo }) => {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <Header></Header>
       <ProgressBar progress={progressPercentage} />
-      <main>
+      <main
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         {`welcome ${userInfo.displayName}!`}
         <ul style={TODOLIST_CONTAINER}>
           {todoItems &&
@@ -87,6 +109,14 @@ const HomePage = ({ userInfo }) => {
               </li>
             ))}
         </ul>
+        <div>
+          <Button
+            src="assets/plusbutton.png"
+            onClick={handleClickOpenModal}
+            style={ADD_BUTTON}
+            type="edit"
+          />
+        </div>
       </main>
       {showModal && <Modal onClose={handleClickCloseModal} />}
     </ThemeContext.Provider>

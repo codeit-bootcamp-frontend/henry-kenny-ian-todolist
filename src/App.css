@@ -7,3 +7,9 @@
 body {
   background-color: var(--light-primary);
 }
+
+input,
+button {
+  border: none;
+  outline: none;
+}

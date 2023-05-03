@@ -10,9 +10,9 @@ const BUTTON_STYLE_EDIT = {
   height: "24px",
 };
 
-const Button = ({ src, onClick, style, type }) => {
+const Button = ({ src, onClick, style, type, buttonType }) => {
   return (
-    <button onClick={onClick} style={style}>
+    <button onClick={onClick} style={style} type={buttonType}>
       <div style={type === "edit" ? BUTTON_STYLE_EDIT : BUTTON_STYLE_DELETE}>
         <img src={src} style={{ width: "100%", display: "block" }} />
       </div>
