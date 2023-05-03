@@ -4,7 +4,7 @@ const PROGRESS_CONTAINER = {
   width: "770px",
   height: "20px",
   borderRadius: "10px",
-  margin: "100px auto 40px",
+  margin: "50px auto 40px",
 };
 const PROGRESS_STATUS = {
   background: "linear-gradient(90deg, #007A31 -6.7%, #23FB00 95%)",

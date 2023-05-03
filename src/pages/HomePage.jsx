@@ -5,6 +5,7 @@ import Header from "../Components/Header/Header";
 import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
+import "../App.css";
 
 const LISTS = [
   {
@@ -33,17 +34,6 @@ const LISTS = [
     isComplete: true,
   },
 ];
-
-const TODOLIST_CONTAINER = {
-  display: "flex",
-  gap: "32px",
-  flexDirection: "column",
-  height: "500px",
-  padding: "30px 24px",
-  overflow: "scroll",
-  width: "fit-content",
-  margin: "0 auto",
-};
 
 const ADD_BUTTON = {
   width: "300px",
@@ -92,7 +82,6 @@ const HomePage = ({ userInfo }) => {
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <Header></Header>
-      <ProgressBar progress={progressPercentage} />
       <main
         style={{
           display: "flex",
@@ -100,8 +89,16 @@ const HomePage = ({ userInfo }) => {
           alignItems: "center",
         }}
       >
-        {`welcome ${userInfo.displayName}!`}
-        <ul style={TODOLIST_CONTAINER}>
+        <div
+          style={{
+            fontSize: "32px",
+            fontWeight: "500",
+            color: "#767676",
+          }}
+        >{`${userInfo.displayName}님의 할일 목록`}</div>
+        <ProgressBar progress={progressPercentage} />
+
+        <ul className="todolist-container">
           {todoItems &&
             todoItems.map((item) => (
               <li key={item.id}>

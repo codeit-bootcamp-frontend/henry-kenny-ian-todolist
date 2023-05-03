@@ -14,10 +14,17 @@ const Header = () => {
   };
 
   return (
-    <header style={{ display: "flex", justifyContent: "space-between" }}>
+    <header
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: "58px",
+        marginBottom: "58px",
+      }}
+    >
       <div
         style={{
-          width: "80%",
+          width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -25,11 +32,19 @@ const Header = () => {
       >
         <Logo></Logo>
       </div>
-      <ToggleSwitch
-        checked={theme === "light"}
-        onChange={handleChange}
-        isMobile={isMobile}
-      />
+      <div
+        style={{
+          position: "absolute",
+          top: "106px",
+          right: "84px",
+        }}
+      >
+        <ToggleSwitch
+          checked={theme === "light"}
+          onChange={handleChange}
+          isMobile={isMobile}
+        />
+      </div>
     </header>
   );
 };

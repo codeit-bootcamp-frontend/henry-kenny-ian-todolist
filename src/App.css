@@ -13,3 +13,34 @@ button {
   border: none;
   outline: none;
 }
+
+.todolist-container {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  height: 500px;
+  padding: 30px 24px;
+  overflow-y: scroll;
+  width: fit-content;
+  margin: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.todolist-container::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+.todolist-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todolist-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.todolist-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.521);
+}

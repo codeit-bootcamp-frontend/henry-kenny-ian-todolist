@@ -6,9 +6,9 @@ const Logo = () => {
       style={{
         width: "200px",
         height: "200px",
-        border: "1px solid black",
         borderRadius: "20px",
-        backgroundColod: "beige",
+        background: "linear-gradient(145deg, #d4d4d9, #fdfdff)",
+        boxShadow: "9px 9px 18px #cdcdd2, -9px -9px 18px #ffffff",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
