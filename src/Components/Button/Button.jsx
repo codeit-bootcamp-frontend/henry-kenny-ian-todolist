@@ -1,20 +1,16 @@
 import React from "react";
+import { buttonTypeMap } from "../../static/maps";
 
-const BUTTON_STYLE_DELETE = {
-  width: "21px",
-  height: "27px",
-};
-
-const BUTTON_STYLE_EDIT = {
-  width: "24px",
-  height: "24px",
-};
-
-const Button = ({ src, onClick, style, type, buttonType }) => {
+const Button = ({ onClick, buttonType }) => {
+  const targetBtn = buttonTypeMap[buttonType];
   return (
-    <button onClick={onClick} style={style} type={buttonType}>
-      <div style={type === "edit" ? BUTTON_STYLE_EDIT : BUTTON_STYLE_DELETE}>
-        <img src={src} style={{ width: "100%", display: "block" }} />
+    <button
+      onClick={onClick}
+      style={targetBtn.style}
+      type={targetBtn.type ?? ""}
+    >
+      <div style={{ width: targetBtn.width, height: targetBtn.height }}>
+        <img src={targetBtn.src} style={{ width: "100%", display: "block" }} />
       </div>
     </button>
   );

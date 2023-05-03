@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
-import { ThemeContext } from "../Contexts/ThemeContext";
+import { Navigate } from "react-router-dom";
 import Modal from "../Components/Modal/Modal";
-import Header from "../Components/Header/Header";
 import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
@@ -51,7 +50,6 @@ const ADD_BUTTON = {
 };
 
 const HomePage = ({ userInfo }) => {
-  const [theme, setTheme] = useState("light");
   const [showModal, setShowModal] = useState(false);
   const [todoItems, setTodoItems] = useState([]);
   const progressPercentage = useMemo(() => {
@@ -78,15 +76,15 @@ const HomePage = ({ userInfo }) => {
     //prop으로 받은 userInfo로 firestore에서 해당 유저의 todolist를 가져오는 코드
     setTodoItems(LISTS);
   }, []);
-
+  if (!userInfo) return <Navigate to="/signin" />;
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Header></Header>
+    <>
       <main
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          marginBottom: "60px",
         }}
       >
         <div
@@ -107,16 +105,11 @@ const HomePage = ({ userInfo }) => {
             ))}
         </ul>
         <div>
-          <Button
-            src="assets/plusbutton.png"
-            onClick={handleClickOpenModal}
-            style={ADD_BUTTON}
-            type="edit"
-          />
+          <Button buttonType="create" onClick={handleClickOpenModal} />
         </div>
       </main>
       {showModal && <Modal onClose={handleClickCloseModal} />}
-    </ThemeContext.Provider>
+    </>
   );
 };
 

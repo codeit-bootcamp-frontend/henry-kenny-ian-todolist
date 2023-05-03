@@ -14,6 +14,19 @@ button {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+  color: #575f6b;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #575f6b;
+}
+
 .todolist-container {
   display: flex;
   gap: 32px;
@@ -43,4 +56,8 @@ button {
 .todolist-container::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgba(128, 128, 128, 0.521);
+}
+
+button {
+  cursor: pointer;
 }

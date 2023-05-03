@@ -130,3 +130,9 @@ table {
 a {
   text-decoration: none;
 }
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

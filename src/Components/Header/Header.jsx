@@ -6,7 +6,6 @@ import { ThemeContext } from "../../Contexts/ThemeContext";
 
 const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
 
   const handleChange = () => {

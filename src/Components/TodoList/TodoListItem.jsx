@@ -14,7 +14,7 @@ const BUTTON_STYLES = {
   alignItems: "center",
 };
 
-const TODO_BOX_STYLE = {
+export const TODO_BOX_STYLE = {
   height: "80px",
   width: "638px",
   position: "relative",
@@ -53,18 +53,8 @@ const TodoListItem = ({ id, title, isComplete, onClickCheckBox }) => {
           {title}
         </div>
       </div>
-      <Button
-        src="assets/pencil.png"
-        onClick={handleEdit}
-        style={BUTTON_STYLES}
-        type="edit"
-      />
-      <Button
-        src="assets/delete.png"
-        onClick={handleDelete}
-        style={BUTTON_STYLES}
-        type="delete"
-      />
+      <Button buttonType="edit" onClick={handleEdit} />
+      <Button buttonType="delete" onClick={handleDelete} />
     </div>
   );
 };

@@ -106,18 +106,8 @@ const Modal = ({ onClose }) => {
               width: "322px",
             }}
           >
-            <Button
-              src="assets/cancelmark.png"
-              onClick={onClose}
-              style={ADD_BUTTON}
-              type="edit"
-            />
-            <Button
-              src="assets/checkmark.png"
-              style={ADD_BUTTON}
-              type="edit"
-              buttonType="submit"
-            />
+            <Button buttonType="close" onClick={onClose} />
+            <Button onClick={() => {}} buttonType="confirm" />
           </div>
         </form>
       </div>
