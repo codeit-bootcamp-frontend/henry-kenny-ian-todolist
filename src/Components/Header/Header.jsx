@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Logo from "./Logo";
 import ToggleSwitch from "./ToggleSwitch";
 import { useMediaQuery } from "react-responsive";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../Contexts/ThemeContext";
 
 const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);

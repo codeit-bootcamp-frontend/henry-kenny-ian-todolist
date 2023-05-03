@@ -1,52 +1,46 @@
-import { useState } from "react";
-import { ThemeContext } from "./contexts/ThemeContext";
-import Button from "./Components/Button/Button";
-import Modal from "./Components/Modal/Modal";
-import Header from "./Components/Header/Header";
+import { useState, useEffect } from "react";
 import "./App.css";
-import TodoListItem from "./Components/TodoList/TodoListItem";
+import { firebaseAuth, firestore } from "./service/firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+import { AppRouter } from "./Routers/AppRouter";
+
 function App() {
-  const [theme, setTheme] = useState("light");
-  const [showModal, setShowModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+  const [init, setInit] = useState(false);
 
-  const handleClickOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleClickCloseModal = () => {
-    setShowModal(false);
-  };
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, async (user) => {
+      if (user) {
+        const q = query(
+          collection(firestore, "users"),
+          where("uid", "==", user.uid)
+        );
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          setUserInfo({
+            uid: data.uid,
+            email: data.email,
+            displayName: data.displayName,
+            date_created: data.date_created,
+          });
+        });
+        setIsLoggedIn(true);
+      }
+      setInit(true);
+    });
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Header></Header>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          flexDirection: "column",
-          margin: "0 auto",
-          width: "200px",
-          height: "400px",
-          marginTop: "66px",
-          backgroundColor: theme === "light" ? "#ECECF1" : "#36393B",
-          borderRadius: "16px",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "32px",
-            marginBottom: "66px",
-            color: theme === "light" ? "#575F6B" : "#F8F8F8",
-          }}
-        >
-          Todo List
-        </h1>
-        <TodoListItem />
-      </div>
-      {showModal && <Modal onClose={handleClickCloseModal} />}
-    </ThemeContext.Provider>
+    <>
+      {init ? (
+        <AppRouter isLoggedIn={isLoggedIn} userInfo={userInfo} />
+      ) : (
+        "로딩중..."
+      )}
+    </>
   );
 }
 
