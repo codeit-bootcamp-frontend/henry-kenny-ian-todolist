@@ -4,6 +4,7 @@ import { firebaseAuth, firestore } from "./service/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { AppRouter } from "./Routers/AppRouter";
+import Spinner from "./Components/Loaders/Spinner";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,7 +30,9 @@ function App() {
         });
         setIsLoggedIn(true);
       }
-      setInit(true);
+      setTimeout(() => {
+        setInit(true);
+      }, 1000);
     });
   }, []);
 
@@ -38,7 +41,9 @@ function App() {
       {init ? (
         <AppRouter isLoggedIn={isLoggedIn} userInfo={userInfo} />
       ) : (
-        "로딩중..."
+        <>
+          <Spinner />
+        </>
       )}
     </>
   );

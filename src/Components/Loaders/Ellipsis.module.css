@@ -1,0 +1,92 @@
+@keyframes ldioff {
+  0% {
+    transform: translate(6px, 40px) scale(0);
+  }
+  25% {
+    transform: translate(6px, 40px) scale(0);
+  }
+  50% {
+    transform: translate(6px, 40px) scale(1);
+  }
+  75% {
+    transform: translate(40px, 40px) scale(1);
+  }
+  100% {
+    transform: translate(74px, 40px) scale(1);
+  }
+}
+@keyframes ldioff-r {
+  0% {
+    transform: translate(74px, 40px) scale(1);
+  }
+  100% {
+    transform: translate(74px, 40px) scale(0);
+  }
+}
+@keyframes ldioff-c {
+  0% {
+    background: #15c714;
+  }
+  25% {
+    background: #12a311;
+  }
+  50% {
+    background: #0e8e0e;
+  }
+  75% {
+    background: #13b812;
+  }
+  100% {
+    background: #11a611;
+  }
+}
+.ldioff div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(20px, 20px) scale(1);
+  background: #15c714;
+  animation: ldioff 2s infinite cubic-bezier(0, 0.5, 0.5, 1); /*1s*/
+}
+/*div->0%  1->75% 2->100% 3->75% 4->50% 5->25%  */
+.ldioff div:nth-child(1) {
+  background: #13b812;
+  transform: translate(74px, 40px) scale(1);
+  animation: ldioff-r 0.5s infinite cubic-bezier(0, 0.5, 0.5, 1),
+    ldioff-c 2s infinite step-start;
+}
+.ldioff div:nth-child(2) {
+  animation-delay: -0.5s;
+  background: #11a611;
+}
+.ldioff div:nth-child(3) {
+  animation-delay: -1s;
+  background: #13b812;
+}
+.ldioff div:nth-child(4) {
+  animation-delay: -1.5s;
+  background: #0e8e0e;
+}
+.ldioff div:nth-child(5) {
+  animation-delay: -2s;
+  background: #12a311;
+}
+.loadingspinnerellipsis {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+}
+.ldioff {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.ldioff div {
+  box-sizing: content-box;
+}
