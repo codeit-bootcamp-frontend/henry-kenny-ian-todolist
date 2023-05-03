@@ -61,7 +61,8 @@ const ADD_BUTTON = {
 const MODAL_INPUT = {
   width: "450px",
   height: "74px",
-  boxShadow: "inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff",
+  backgroundColor: "#EDEEF2",
+  boxShadow: "inset 2px 2px 4px #bebebe, inset -2px -2px 4px #ffffff",
   fontSize: "28px",
   borderRadius: "20px",
   textIndent: "16px",
@@ -107,7 +108,7 @@ const Modal = ({ onClose }) => {
             }}
           >
             <Button buttonType="close" onClick={onClose} />
-            <Button onClick={() => {}} buttonType="confirm" />
+            <Button buttonType="confirm" onClick={() => {}} />
           </div>
         </form>
       </div>

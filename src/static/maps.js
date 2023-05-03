@@ -33,8 +33,8 @@ export const buttonTypeMap = {
   },
   create: {
     src: "assets/plusbutton.png",
-    width: "24px",
-    height: "24px",
+    width: "36px",
+    height: "36px",
     style: {
       width: "300px",
       height: "80px",
@@ -100,7 +100,7 @@ export const buttonTypeMap = {
       width: "122px",
       height: "50px",
       filter:
-        "drop-shadow(-4px -4px 20px #FFFFFF) drop-shadow(3px 3px 20px rgba(36, 65, 93, 0.302))",
+        "drop-shadow(-4px -4px 2px #FFFFFF) drop-shadow(2px 2px 2px rgba(36, 65, 93, 0.302))",
       background:
         "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
       border: "none",
@@ -112,14 +112,14 @@ export const buttonTypeMap = {
   },
   confirm: {
     src: "assets/checkmark.png",
-    width: "28px",
-    height: "22px",
+    width: "34px",
+    height: "26.56px",
     type: "submit",
     style: {
       width: "122px",
       height: "50px",
       filter:
-        "drop-shadow(-4px -4px 20px #FFFFFF) drop-shadow(3px 3px 20px rgba(36, 65, 93, 0.302))",
+        "drop-shadow(-4px -4px 2px #FFFFFF) drop-shadow(2px 2px 2px rgba(36, 65, 93, 0.302))",
       background:
         "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
       border: "none",

@@ -62,3 +62,8 @@ input:-webkit-autofill:active {
 button {
   cursor: pointer;
 }
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: inset 2px 2px 4px #9d9d9d, inset -2px -2px 4px #ffffff;
+}
