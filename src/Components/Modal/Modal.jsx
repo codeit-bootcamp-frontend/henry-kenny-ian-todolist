@@ -1,8 +1,16 @@
 import React, { useRef, useState } from "react";
 import ModalPortal from "./ModalPortal";
 import Button from "../Button/Button";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import { firestore } from "../../service/firebase";
+
 const MODAL_BOX_STYLE_1 = {
   position: "fixed",
   top: "50%",
@@ -63,8 +71,9 @@ const MODAL_FORM = {
   gap: "40px",
 };
 
-const Modal = ({ onClose, userInfo }) => {
+const Modal = ({ onClose, userInfo, todoItem }) => {
   const titleRef = useRef(null);
+  const queryPath = `/users/${userInfo?.uid}/todos`;
   const [title, setTitle] = useState("");
   const handleChange = () => {
     if (!titleRef.current) return;
@@ -73,11 +82,28 @@ const Modal = ({ onClose, userInfo }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addDoc(collection(firestore, `users/${userInfo.uid}/todos`), {
-      title,
-      isComplete: false,
-      id: new Date().getTime(),
-    });
+
+    if (todoItem) {
+      // 수정 용도로 사용하는 경우 submit 함수
+      const q = query(
+        collection(firestore, queryPath),
+        where("id", "==", todoItem.id)
+      );
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach(async (doc) => {
+        await updateDoc(doc.ref, {
+          title,
+        });
+      });
+    } else {
+      // 추가 용도로 사용하는 경우 submit 함수
+      await addDoc(collection(firestore, `users/${userInfo.uid}/todos`), {
+        title,
+        isComplete: false,
+        id: new Date().getTime(),
+      });
+    }
   };
 
   return (
@@ -88,7 +114,7 @@ const Modal = ({ onClose, userInfo }) => {
         <form style={MODAL_FORM} onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="내용을 입력하세요..."
+            placeholder={todoItem ? todoItem.title : "내용을 입력하세요..."}
             ref={titleRef}
             onChange={handleChange}
             style={MODAL_INPUT}

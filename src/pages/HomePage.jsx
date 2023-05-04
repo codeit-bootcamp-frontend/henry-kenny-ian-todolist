@@ -12,6 +12,7 @@ import {
   where,
   updateDoc,
   getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -21,14 +22,27 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
   const queryPath = `/users/${userInfo?.uid}/todos`;
   const _query = collection(firestore, queryPath);
   const [todos, loading, error] = useCollectionData(_query);
+  const [editTarget, setEditTarget] = useState();
+
   const progressPercentage = useMemo(() => {
-    if (todoItems)
-      return todoItems.filter((el) => el.isComplete).length / todoItems.length;
-    return 0;
+    let ret = 0;
+    if (todoItems) {
+      if (todoItems.length > 0)
+        ret = todoItems.filter((el) => el.isComplete).length / todoItems.length;
+      else ret = 0;
+    }
+    return ret;
   }, [todoItems, todos]);
 
-  const handleClickOpenModal = () => {
+  const handleClickOpenModal = (targetId) => {
     setShowModal(true);
+    if (targetId) {
+      setEditTarget(
+        todoItems.find((item) => {
+          return item.id === targetId;
+        })
+      );
+    }
   };
 
   const handleClickCloseModal = () => {
@@ -44,6 +58,15 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
       await updateDoc(doc.ref, {
         isComplete: !data.isComplete,
       });
+    });
+  };
+
+  const handleDeleteItem = async (id) => {
+    const q = query(collection(firestore, queryPath), where("id", "==", id));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(async (doc) => {
+      await deleteDoc(doc.ref);
     });
   };
 
@@ -75,7 +98,12 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
           {todoItems &&
             todoItems.map((item) => (
               <li key={item.id}>
-                <TodoListItem {...item} onClickCheckBox={handleClickCheckBox} />
+                <TodoListItem
+                  {...item}
+                  onClickCheckBox={handleClickCheckBox}
+                  onClickEdit={handleClickOpenModal}
+                  onClickDelete={handleDeleteItem}
+                />
               </li>
             ))}
         </ul>
@@ -84,7 +112,11 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
         </div>
       </main>
       {showModal && (
-        <Modal onClose={handleClickCloseModal} userInfo={userInfo} />
+        <Modal
+          onClose={handleClickCloseModal}
+          userInfo={userInfo}
+          todoItem={editTarget ?? undefined}
+        />
       )}
     </>
   );

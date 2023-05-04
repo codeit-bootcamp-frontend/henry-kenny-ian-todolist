@@ -30,10 +30,21 @@ const TODO_LIST_ITEM_STYLE = {
   gap: "23px",
 };
 
-const TodoListItem = ({ id, title, isComplete, onClickCheckBox }) => {
-  const handleEdit = () => {};
+const TodoListItem = ({
+  id,
+  title,
+  isComplete,
+  onClickCheckBox,
+  onClickEdit,
+  onClickDelete,
+}) => {
+  const handleEdit = () => {
+    onClickEdit(id);
+  };
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    onClickDelete(id);
+  };
 
   const handleClickCheckBox = (id) => {
     onClickCheckBox(id);
@@ -48,7 +59,12 @@ const TodoListItem = ({ id, title, isComplete, onClickCheckBox }) => {
           itemId={id}
         />
         <div
-          style={{ textIndent: "105px", fontSize: "24px", color: "#767676" }}
+          style={{
+            textIndent: "105px",
+            fontSize: "24px",
+            color: "#767676",
+            textDecoration: isComplete ? "line-through" : "none",
+          }}
         >
           {title}
         </div>
