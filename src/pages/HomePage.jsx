@@ -6,15 +6,21 @@ import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
 import "../App.css";
 import { firestore } from "../service/firebase";
-import { collection } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  updateDoc,
+  getDocs,
+} from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const HomePage = ({ userInfo, isLoggedIn }) => {
   const [showModal, setShowModal] = useState(false);
   const [todoItems, setTodoItems] = useState([]);
   const queryPath = `/users/${userInfo?.uid}/todos`;
-  const query = collection(firestore, queryPath);
-  const [todos, loading, error] = useCollectionData(query);
+  const _query = collection(firestore, queryPath);
+  const [todos, loading, error] = useCollectionData(_query);
   const progressPercentage = useMemo(() => {
     if (todoItems)
       return todoItems.filter((el) => el.isComplete).length / todoItems.length;
@@ -29,12 +35,16 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
     setShowModal(false);
   };
 
-  const handleClickCheckBox = (id) => {
-    const temp = [...todoItems];
-    const targetIndex = temp.findIndex((todoItem) => todoItem.id === id);
-    temp[targetIndex].isComplete = !temp[targetIndex].isComplete;
+  const handleClickCheckBox = async (id) => {
+    const q = query(collection(firestore, queryPath), where("id", "==", id));
+    const querySnapshot = await getDocs(q);
 
-    setTodoItems(temp);
+    querySnapshot.forEach(async (doc) => {
+      const data = doc.data();
+      await updateDoc(doc.ref, {
+        isComplete: !data.isComplete,
+      });
+    });
   };
 
   useEffect(() => {
