@@ -129,4 +129,23 @@ export const buttonTypeMap = {
       alignItems: "center",
     },
   },
+  logout: {
+    src: "assets/logout-text.png",
+    width: "72px",
+    height: "12px",
+    type: "button",
+    style: {
+      width: "120px",
+      height: "50px",
+      filter:
+        "drop-shadow(-4px -4px 5px #FFFFFF) drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302))",
+      background:
+        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
+      border: "none",
+      borderRadius: "25px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  },
 };

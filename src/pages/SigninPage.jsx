@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { TODO_BOX_STYLE } from "../Components/TodoList/TodoListItem";
 import Button from "../Components/Button/Button";
+import Spinner from "../Components/Loaders/Spinner";
 
 const LABEL = {
   height: "80px",
@@ -54,17 +55,22 @@ const SigninPage = () => {
     password: "",
   });
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.currentTarget;
     setInput({ ...input, [name]: value });
   };
 
-  const handleSignin = async (e) => {
+  const handleSignin = (e) => {
+    setLoading(true);
     e.preventDefault();
-    await signInWithEmailAndPassword(firebaseAuth, input.email, input.password)
+    signInWithEmailAndPassword(firebaseAuth, input.email, input.password)
       .then(() => {
-        navigate("/");
+        setTimeout(() => {
+          setLoading(false);
+          navigate("/");
+        }, 500);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -72,7 +78,20 @@ const SigninPage = () => {
         console.warn(`${errorCode} = ${errorMessage}`);
       });
   };
-
+  if (loading)
+    return (
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "50vh",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Spinner />
+      </div>
+    );
   return (
     <form
       onSubmit={handleSignin}

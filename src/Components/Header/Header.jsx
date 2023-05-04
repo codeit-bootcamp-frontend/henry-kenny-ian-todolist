@@ -3,13 +3,28 @@ import Logo from "./Logo";
 import ToggleSwitch from "./ToggleSwitch";
 import { useMediaQuery } from "react-responsive";
 import { ThemeContext } from "../../Contexts/ThemeContext";
+import Button from "../Button/Button";
+import { firebaseAuth } from "../../service/firebase";
+import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isLoggedIn }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
+  const navigate = useNavigate();
 
   const handleChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  const handleLogout = () => {
+    firebaseAuth
+      .signOut()
+      .then(() => {
+        navigate("/signin");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -43,6 +58,11 @@ const Header = () => {
           onChange={handleChange}
           isMobile={isMobile}
         />
+        {isLoggedIn && (
+          <div style={{ marginTop: "20px" }}>
+            <Button onClick={handleLogout} buttonType="logout" />
+          </div>
+        )}
       </div>
     </header>
   );

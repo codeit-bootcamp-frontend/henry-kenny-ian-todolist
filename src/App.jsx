@@ -29,6 +29,9 @@ function App() {
           });
         });
         setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+        setUserInfo(null);
       }
       setTimeout(() => {
         setInit(true);
@@ -42,7 +45,17 @@ function App() {
         <AppRouter isLoggedIn={isLoggedIn} userInfo={userInfo} />
       ) : (
         <>
-          <Spinner />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100vh",
+            }}
+          >
+            <Spinner />
+            {/* <Ellipsis /> */}
+          </div>
         </>
       )}
     </>

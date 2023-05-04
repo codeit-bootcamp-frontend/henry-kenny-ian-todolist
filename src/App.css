@@ -53,6 +53,11 @@
   --green: #15c714;
 }
 
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   background-color: var(--light-background);
 }

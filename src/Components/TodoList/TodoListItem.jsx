@@ -30,6 +30,17 @@ const TODO_LIST_ITEM_STYLE = {
   gap: "23px",
 };
 
+const INPUT_TEXT = {
+  textIndent: "105px",
+  fontSize: "24px",
+  color: "#767676",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: "1",
+};
+
 const TodoListItem = ({
   id,
   title,
@@ -38,6 +49,8 @@ const TodoListItem = ({
   onClickEdit,
   onClickDelete,
 }) => {
+  const textDecoration = isComplete ? "line-through" : "none";
+
   const handleEdit = () => {
     onClickEdit(id);
   };
@@ -58,14 +71,7 @@ const TodoListItem = ({
           checked={isComplete}
           itemId={id}
         />
-        <div
-          style={{
-            textIndent: "105px",
-            fontSize: "24px",
-            color: "#767676",
-            textDecoration: isComplete ? "line-through" : "none",
-          }}
-        >
+        <div title={title} style={{ ...INPUT_TEXT, textDecoration }}>
           {title}
         </div>
       </div>

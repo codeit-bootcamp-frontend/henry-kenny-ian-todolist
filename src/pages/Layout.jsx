@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import { ThemeProvider } from "../Contexts/ThemeContext";
 
-const Layout = () => {
+const Layout = ({ isLoggedIn }) => {
   return (
     <ThemeProvider>
-      <Header></Header>
+      <Header isLoggedIn={isLoggedIn}></Header>
       <Outlet />
     </ThemeProvider>
   );

@@ -9,7 +9,7 @@ export const AppRouter = ({ isLoggedIn, userInfo }) => {
   return (
     <Router>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<Layout isLoggedIn={isLoggedIn} />}>
           <Route
             path="/"
             element={<HomePage isLoggedIn={isLoggedIn} userInfo={userInfo} />}

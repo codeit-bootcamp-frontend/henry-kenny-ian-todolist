@@ -74,7 +74,7 @@ const MODAL_FORM = {
 const Modal = ({ onClose, userInfo, todoItem }) => {
   const titleRef = useRef(null);
   const queryPath = `/users/${userInfo?.uid}/todos`;
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(todoItem?.title);
   const handleChange = () => {
     if (!titleRef.current) return;
     setTitle(titleRef.current.value);
@@ -105,6 +105,7 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
       });
     }
   };
+  console.log(title);
 
   return (
     <ModalPortal>
@@ -114,7 +115,8 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
         <form style={MODAL_FORM} onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder={todoItem ? todoItem.title : "내용을 입력하세요..."}
+            placeholder="내용을 입력하세요..."
+            value={title}
             ref={titleRef}
             onChange={handleChange}
             style={MODAL_INPUT}
