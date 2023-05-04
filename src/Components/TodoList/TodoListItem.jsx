@@ -36,9 +36,14 @@ const INPUT_TEXT = {
   color: "#767676",
   overflow: "hidden",
   textOverflow: "ellipsis",
+  width: "95%",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: "1",
+  lineHeight: "2em",
+  cursor: "inherit",
+  whiteSpace: "wrap",
+  userSelect: "none",
 };
 
 const TodoListItem = ({
