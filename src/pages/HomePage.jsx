@@ -5,56 +5,21 @@ import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
 import "../App.css";
+import { firestore } from "../service/firebase";
+import { collection } from "firebase/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
-const LISTS = [
-  {
-    id: 1,
-    title: "밥 먹기",
-    isComplete: false,
-  },
-  {
-    id: 2,
-    title: "개 밥 주기",
-    isComplete: false,
-  },
-  {
-    id: 3,
-    title: "고양이 밥 주기",
-    isComplete: true,
-  },
-  {
-    id: 4,
-    title: "개 산책",
-    isComplete: false,
-  },
-  {
-    id: 5,
-    title: "고양이 산책",
-    isComplete: true,
-  },
-];
-
-const ADD_BUTTON = {
-  width: "300px",
-  height: "80px",
-  margin: "0 auto",
-  filter:
-    "drop-shadow(-4px -4px 20px #FFFFFF) drop-shadow(3px 3px 20px rgba(36, 65, 93, 0.302))",
-  background: "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-  border: "none",
-  borderRadius: "40px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  marginTop: "46px",
-};
-
-const HomePage = ({ userInfo }) => {
+const HomePage = ({ userInfo, isLoggedIn }) => {
   const [showModal, setShowModal] = useState(false);
   const [todoItems, setTodoItems] = useState([]);
+  const queryPath = `/users/${userInfo?.uid}/todos`;
+  const query = collection(firestore, queryPath);
+  const [todos, loading, error] = useCollectionData(query);
   const progressPercentage = useMemo(() => {
-    return todoItems.filter((el) => el.isComplete).length / todoItems.length;
-  }, [todoItems]);
+    if (todoItems)
+      return todoItems.filter((el) => el.isComplete).length / todoItems.length;
+    return 0;
+  }, [todoItems, todos]);
 
   const handleClickOpenModal = () => {
     setShowModal(true);
@@ -73,10 +38,10 @@ const HomePage = ({ userInfo }) => {
   };
 
   useEffect(() => {
-    //prop으로 받은 userInfo로 firestore에서 해당 유저의 todolist를 가져오는 코드
-    setTodoItems(LISTS);
-  }, []);
-  if (!userInfo) return <Navigate to="/signin" />;
+    setTodoItems(todos);
+  }, [todos]);
+
+  if (!isLoggedIn) return <Navigate to="/signin" />;
   return (
     <>
       <main
@@ -108,7 +73,9 @@ const HomePage = ({ userInfo }) => {
           <Button buttonType="create" onClick={handleClickOpenModal} />
         </div>
       </main>
-      {showModal && <Modal onClose={handleClickCloseModal} />}
+      {showModal && (
+        <Modal onClose={handleClickCloseModal} userInfo={userInfo} />
+      )}
     </>
   );
 };

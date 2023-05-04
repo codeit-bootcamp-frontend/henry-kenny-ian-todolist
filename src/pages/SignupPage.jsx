@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebaseAuth, firestore } from "../service/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import Button from "../Components/Button/Button";
 import { TODO_BOX_STYLE } from "../Components/TodoList/TodoListItem";
 
@@ -51,7 +51,7 @@ const SignupPage = () => {
     )
       .then(async (userCredential) => {
         const user = userCredential.user;
-        await addDoc(collection(firestore, "users"), {
+        await setDoc(doc(firestore, "users", user.uid), {
           uid: user.uid,
           ...input,
         });
