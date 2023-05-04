@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Navigate } from "react-router-dom";
 import Modal from "../Components/Modal/Modal";
+import DoneModal from "../Components/Modal/DoneModal";
 import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
@@ -23,6 +24,7 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
   const _query = collection(firestore, queryPath);
   const [todos, loading, error] = useCollectionData(_query);
   const [editTarget, setEditTarget] = useState();
+  const [showDone, setShowDone] = useState(false);
 
   const progressPercentage = useMemo(() => {
     let ret = 0;
@@ -44,7 +46,9 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
       );
     }
   };
-
+  const handleCloseDoneModal = () => {
+    setShowDone(false);
+  };
   const handleClickCloseModal = () => {
     setShowModal(false);
   };
@@ -74,6 +78,12 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
     setTodoItems(todos);
   }, [todos]);
 
+  useEffect(() => {
+    if (progressPercentage === 1) {
+      setShowDone(true);
+    }
+  }, [progressPercentage]);
+
   if (!isLoggedIn) return <Navigate to="/signin" />;
   return (
     <>
@@ -83,6 +93,7 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
           flexDirection: "column",
           alignItems: "center",
           marginBottom: "60px",
+          paddingBottom: "90px",
         }}
       >
         <div
@@ -118,6 +129,7 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
           todoItem={editTarget ?? undefined}
         />
       )}
+      {showDone && <DoneModal onClose={handleCloseDoneModal} />}
     </>
   );
 };
