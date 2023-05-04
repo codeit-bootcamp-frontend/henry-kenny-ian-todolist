@@ -10,7 +10,7 @@
 **Framework**<br>
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-**Server**
+**Server**<br>
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 
 **Collaboration Tool**<br>
@@ -121,6 +121,7 @@
 3.  기능 구현
 
 - [x] 로그인, 회원가입 기능
+- [ ] 로그아웃 기능
 - [x] 프로그레스바 기능
 - [ ] hover text 기능
 - [ ] 할 일 추가(모달)
@@ -131,7 +132,7 @@
 4. 애니메이션, 디자인(스타일, 배치, 테마, 반응형 등) 적용
 
 - [ ] 모달 애니메이션
-- [ ] 프로그레스바 애니메이션 (Done 체크시 자연스럽게 늘어나도록)
+- [x] 프로그레스바 애니메이션 (Done 체크시 자연스럽게 늘어나도록)
 - [ ] 스와이프 기능: 모바일 버전에서 밀어서 삭제 버튼 보이기 (미는 건, 데스크탑에서는 드래그 + 모바일에서는 터치 스타트/엔드)
 - [ ] 모바일 반응형 레이아웃(모바일은 ~866, 데스크탑은 867~)
 - [ ] 다크/라이트 모드 지원
