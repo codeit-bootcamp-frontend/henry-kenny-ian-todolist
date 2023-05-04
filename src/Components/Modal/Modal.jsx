@@ -74,7 +74,7 @@ const MODAL_FORM = {
 const Modal = ({ onClose, userInfo, todoItem }) => {
   const titleRef = useRef(null);
   const queryPath = `/users/${userInfo?.uid}/todos`;
-  const [title, setTitle] = useState(todoItem?.title);
+  const [title, setTitle] = useState(todoItem ? todoItem.title : "");
   const handleChange = () => {
     if (!titleRef.current) return;
     setTitle(titleRef.current.value);
@@ -105,7 +105,6 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
       });
     }
   };
-  console.log(title);
 
   return (
     <ModalPortal>

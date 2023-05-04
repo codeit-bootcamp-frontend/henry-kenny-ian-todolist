@@ -3,6 +3,7 @@ export const buttonTypeMap = {
     src: "assets/pencil.png",
     width: "24px",
     height: "24px",
+    type: "button",
     style: {
       width: "80px",
       height: "80px",
@@ -19,6 +20,7 @@ export const buttonTypeMap = {
     src: "assets/delete.png",
     width: "21px",
     height: "27px",
+    type: "button",
     style: {
       width: "80px",
       height: "80px",
@@ -35,6 +37,7 @@ export const buttonTypeMap = {
     src: "assets/plusbutton.png",
     width: "36px",
     height: "36px",
+    type: "button",
     style: {
       width: "300px",
       height: "80px",
@@ -76,6 +79,7 @@ export const buttonTypeMap = {
     src: "assets/register-text.png",
     width: "164px",
     height: "30px",
+    type: "submit",
     style: {
       width: "300px",
       height: "80px",
@@ -96,6 +100,7 @@ export const buttonTypeMap = {
     src: "assets/cancelmark.png",
     width: "24px",
     height: "24px",
+    type: "button",
     style: {
       width: "122px",
       height: "50px",
