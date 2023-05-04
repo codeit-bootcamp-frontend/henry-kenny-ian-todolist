@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import ModalPortal from "./ModalPortal";
-
 import Button from "../Button/Button";
-
+import { addDoc, collection } from "firebase/firestore";
+import { firestore } from "../../service/firebase";
 const MODAL_BOX_STYLE_1 = {
   position: "fixed",
   top: "50%",
@@ -45,19 +45,6 @@ const OVERLAY_STYLE = {
   zIndex: "1",
 };
 
-const ADD_BUTTON = {
-  width: "122px",
-  height: "50px",
-  filter:
-    "drop-shadow(-4px -4px 20px #FFFFFF) drop-shadow(3px 3px 20px rgba(36, 65, 93, 0.302))",
-  background: "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-  border: "none",
-  borderRadius: "10px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
 const MODAL_INPUT = {
   width: "450px",
   height: "74px",
@@ -76,15 +63,21 @@ const MODAL_FORM = {
   gap: "40px",
 };
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, userInfo }) => {
   const titleRef = useRef(null);
   const [title, setTitle] = useState("");
   const handleChange = () => {
     if (!titleRef.current) return;
     setTitle(titleRef.current.value);
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await addDoc(collection(firestore, `users/${userInfo.uid}/todos`), {
+      title,
+      isComplete: false,
+      id: new Date().getTime(),
+    });
   };
 
   return (
@@ -108,7 +101,13 @@ const Modal = ({ onClose }) => {
             }}
           >
             <Button buttonType="close" onClick={onClose} />
-            <Button buttonType="confirm" onClick={() => {}} />
+            <Button
+              buttonType="confirm"
+              onClick={(e) => {
+                handleSubmit(e);
+                onClose();
+              }}
+            />
           </div>
         </form>
       </div>
