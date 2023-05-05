@@ -14,6 +14,10 @@ const Header = ({ isLoggedIn }) => {
 
   const handleChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
+    document.body.style.setProperty(
+      "background-color",
+      theme === "light" ? "#ececf1" : "#36393b"
+    );
   };
 
   const handleLogout = () => {
