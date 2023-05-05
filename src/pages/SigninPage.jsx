@@ -6,6 +6,8 @@ import Button from "../Components/Button/Button";
 import Spinner from "../Components/Loaders/Spinner";
 import styles from "./AuthForm.module.css";
 import { ThemeContext } from "../Contexts/ThemeContext";
+import { authFailMessageMap } from "../static/maps";
+import NoticeModal from "../Components/Modal/NoticeModal";
 
 const SigninPage = () => {
   const { theme } = useContext(ThemeContext);
@@ -15,6 +17,8 @@ const SigninPage = () => {
   });
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [showFail, setShowFail] = useState(false);
+  const [failMessage, setFailMessage] = useState("");
   const labelClass = `${styles.label} convex-${theme}-md`;
   const inputClass = `${styles.input} concave-${theme}-md`;
 
@@ -34,9 +38,9 @@ const SigninPage = () => {
         }, 500);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.warn(`${errorCode} = ${errorMessage}`);
+        setLoading(false);
+        setShowFail(true);
+        setFailMessage(authFailMessageMap[error.code]);
       });
   };
   if (loading)
@@ -84,6 +88,14 @@ const SigninPage = () => {
       <span className={styles.redirectText}>
         Not a member yet? <Link to="/signup">Register</Link>
       </span>
+      {showFail && (
+        <NoticeModal
+          onClose={() => {
+            setShowFail(false);
+          }}
+          message={failMessage}
+        />
+      )}
     </form>
   );
 };

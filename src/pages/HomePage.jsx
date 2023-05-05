@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Navigate } from "react-router-dom";
 import Modal from "../Components/Modal/Modal";
-import DoneModal from "../Components/Modal/DoneModal";
+import NoticeModal from "../Components/Modal/NoticeModal";
 import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
@@ -117,7 +117,12 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
           todoItem={editTarget ?? undefined}
         />
       )}
-      {showDone && <DoneModal onClose={handleCloseDoneModal} />}
+      {showDone && (
+        <NoticeModal
+          onClose={handleCloseDoneModal}
+          message="달성률 100%를 축하합니다!"
+        />
+      )}
     </>
   );
 };

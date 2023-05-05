@@ -102,4 +102,25 @@ export const buttonTypeMap = {
       className: "convex-dark-md",
     },
   },
+  goback: {
+    imgBoxWidth: "146px",
+    imgBoxHeight: "21px",
+    type: "button",
+    light: {
+      src: "assets/goback-text-light.png",
+      className: "convex-light-lg",
+    },
+    dark: {
+      src: "assets/goback-text-dark.png",
+      className: "convex-dark-md",
+    },
+  },
+};
+
+export const authFailMessageMap = {
+  "auth/wrong-password": "Wrong Password!",
+  "auth/user-not-found": "User not found!",
+  "auth/email-already-in-use": "Email already in use!",
+  "auth/weak-password": "Short password! (at least 6)",
+  "auth/invalid-email": "Invalid Email!",
 };

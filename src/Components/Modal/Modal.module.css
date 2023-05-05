@@ -34,6 +34,7 @@
   border: none;
   max-height: 100px;
   padding: 20px;
+  text-indent: inherit;
 }
 
 .input::-webkit-resizer {

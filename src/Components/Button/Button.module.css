@@ -11,7 +11,8 @@
 
 .create,
 .login,
-.register {
+.register,
+.goback {
   width: 300px;
   height: 80px;
   margin: 0 auto;

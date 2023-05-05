@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import styles from "./Modal.module.css";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 
-const DoneModal = ({ onClose }) => {
+const NoticeModal = ({ onClose, message }) => {
   const { theme } = useContext(ThemeContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const DoneModal = ({ onClose }) => {
             className={`${styles.input} ${styles.doneInput} convex-${theme}-md ${theme}`}
             type="text"
             readOnly
-            placeholder="달성률 100%를 축하합니다!!"
+            placeholder={message}
           ></input>
           <div className={styles.doneButtonsContainer}>
             <Button
@@ -36,4 +36,4 @@ const DoneModal = ({ onClose }) => {
   );
 };
 
-export default DoneModal;
+export default NoticeModal;

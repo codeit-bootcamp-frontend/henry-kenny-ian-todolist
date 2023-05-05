@@ -4,6 +4,8 @@ import SigninPage from "../pages/SigninPage";
 import SignupPage from "../pages/SignupPage";
 import HomePage from "../pages/HomePage";
 import Layout from "../pages/Layout";
+import AuthRouter from "./AuthRouter";
+import NotFoundPage from "../pages/NotFoundPage";
 
 export const AppRouter = ({ isLoggedIn, userInfo }) => {
   return (
@@ -14,9 +16,21 @@ export const AppRouter = ({ isLoggedIn, userInfo }) => {
             path="/"
             element={<HomePage isLoggedIn={isLoggedIn} userInfo={userInfo} />}
           ></Route>
-          <Route path="/signin" element={<SigninPage />}></Route>
+          <Route
+            path="/signin"
+            element={
+              <AuthRouter
+                condition={!isLoggedIn}
+                destinationPage={<SigninPage />}
+                redirectPage={
+                  <HomePage isLoggedIn={isLoggedIn} userInfo={userInfo} />
+                }
+              />
+            }
+          ></Route>
           <Route path="/signup" element={<SignupPage />}></Route>
         </Route>
+        <Route path="/*" element={<NotFoundPage />}></Route>
       </Routes>
     </Router>
   );

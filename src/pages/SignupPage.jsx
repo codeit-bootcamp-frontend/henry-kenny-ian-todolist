@@ -6,10 +6,16 @@ import { setDoc, doc } from "firebase/firestore";
 import Button from "../Components/Button/Button";
 import styles from "./AuthForm.module.css";
 import { ThemeContext } from "../Contexts/ThemeContext";
+import { authFailMessageMap } from "../static/maps";
+import NoticeModal from "../Components/Modal/NoticeModal";
+import Spinner from "../Components/Loaders/Spinner";
 
 const SignupPage = () => {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [showFail, setShowFail] = useState(false);
+  const [failMessage, setFailMessage] = useState("");
   const [input, setInput] = useState({
     email: "",
     displayName: "",
@@ -20,6 +26,12 @@ const SignupPage = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if (input.displayName === "") {
+      setShowFail(true);
+      setFailMessage("Enter a nickname!");
+      return;
+    }
+    setIsLoading(true);
     await createUserWithEmailAndPassword(
       firebaseAuth,
       input.email,
@@ -31,10 +43,13 @@ const SignupPage = () => {
           uid: user.uid,
           ...input,
         });
+        setIsLoading(false);
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        setIsLoading(false);
+        setShowFail(true);
+        setFailMessage(authFailMessageMap[error.code]);
       });
   };
 
@@ -43,8 +58,14 @@ const SignupPage = () => {
     setInput({ ...input, [name]: value });
   };
 
+  if (isLoading)
+    return (
+      <div className={styles.spinnerWrapper}>
+        <Spinner />
+      </div>
+    );
   return (
-    <form onSubmit={handleSignup}>
+    <form onSubmit={handleSignup} noValidate>
       <div className={styles.inputWrapper}>
         <label className={labelClass} htmlFor="display-name">
           NICKNAME
@@ -97,6 +118,14 @@ const SignupPage = () => {
       <span className={styles.redirectText}>
         Already a member? <Link to="/signin">Signin</Link>
       </span>
+      {showFail && (
+        <NoticeModal
+          onClose={() => {
+            setShowFail(false);
+          }}
+          message={failMessage}
+        />
+      )}
     </form>
   );
 };
