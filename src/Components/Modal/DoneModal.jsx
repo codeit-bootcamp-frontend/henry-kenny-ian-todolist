@@ -22,7 +22,7 @@ const DoneModal = ({ onClose }) => {
           ></input>
           <div className={styles.doneButtonsContainer}>
             <Button
-              buttonType="confirm"
+              buttonType="close"
               onClick={(e) => {
                 onClose();
               }}

@@ -52,7 +52,7 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
   return (
     <ModalPortal>
       <div className={styles.overlay} onClick={onClose} />
-      <div className={`${styles.wrapper} ${theme}`}>
+      <div className={`${styles.wrapper}`}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
             className={`${styles.input} ${theme} concave-${theme}-sm`}

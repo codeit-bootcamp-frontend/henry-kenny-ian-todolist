@@ -15,7 +15,7 @@
   text-align: center;
   width: 556px;
   height: 278px;
-  /* background: var(--light-background); */
+  background: var(--light-background);
   filter: drop-shadow(3px 3px 20px rgba(36, 65, 93, 0.302));
   z-index: 11;
   display: flex;
