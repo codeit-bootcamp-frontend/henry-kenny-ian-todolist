@@ -3,6 +3,26 @@ header {
   justify-content: space-between;
   margin-top: 58px;
   margin-bottom: 58px;
+  align-items: center;
+  padding: 0 168px;
+}
+@media only screen and (max-width: 1200px) {
+  header {
+    padding: 0 100px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  header {
+    padding: 0 48px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+.dummyBox {
+  min-width: 120px;
 }
 
 .logoContainer {
@@ -13,7 +33,7 @@ header {
 }
 
 .switchContainer {
-  position: absolute;
+  /* position: absolute; */
   top: 106px;
   right: 84px;
 }

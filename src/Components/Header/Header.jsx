@@ -41,6 +41,7 @@ const Header = ({ isLoggedIn }) => {
 
   return (
     <header>
+      <div className={styles.dummyBox}></div>
       <div className={styles.logoContainer}>
         <Logo></Logo>
       </div>

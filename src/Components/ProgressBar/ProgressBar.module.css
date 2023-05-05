@@ -11,3 +11,9 @@
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
 }
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 74%;
+  }
+}

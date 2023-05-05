@@ -41,3 +41,9 @@ main {
   border-radius: 10px;
   background-color: rgba(128, 128, 128, 0.521);
 }
+
+@media only screen and (max-width: 1024px) {
+  .todolistContainer {
+    width: 94%;
+  }
+}

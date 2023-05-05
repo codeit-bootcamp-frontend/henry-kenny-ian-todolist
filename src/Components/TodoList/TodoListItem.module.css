@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   gap: 23px;
+  justify-content: center;
 }
 
 .textBox {
@@ -10,6 +11,7 @@
   border-radius: 40px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .textWrapper {
@@ -23,6 +25,5 @@
   -webkit-line-clamp: 1;
   line-height: 2em;
   cursor: inherit;
-  white-space: nowrap;
   user-select: none;
 }
