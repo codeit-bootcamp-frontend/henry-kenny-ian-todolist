@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 58px;
+  margin-bottom: 58px;
+}
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switchContainer {
+  position: absolute;
+  top: 106px;
+  right: 84px;
+}
+
+.btnContainer {
+  margin-top: 20px;
+}

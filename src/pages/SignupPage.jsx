@@ -5,34 +5,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import Button from "../Components/Button/Button";
 import { TODO_BOX_STYLE } from "../Components/TodoList/TodoListItem";
-
-const LABEL = {
-  height: "80px",
-  width: "270px",
-  background: "#EDEEF2",
-  boxShadow: "1px 1px 9px #a8a8a8, -1px -1px 9px #ffffff",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  fontSize: "20px",
-  color: "#575F6B",
-  borderRadius: "40px 0 0 40px",
-};
-
-const INPUT = {
-  background: "transparent",
-  width: "100%",
-  fontSize: "20px",
-  textIndent: "28px",
-  color: "#575F6B",
-};
-
-const CHANGE_SIGNIN = {
-  fontSize: "20px",
-  color: "#767676",
-  fontWeight: "400",
-  marginTop: "31px",
-};
+import styles from "./AuthForm.module.css";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -68,44 +41,33 @@ const SignupPage = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSignup}
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <div style={{ ...TODO_BOX_STYLE, marginBottom: "40px", width: "797px" }}>
-        <label htmlFor="display-name" style={LABEL}>
-          NICKNAME
-        </label>
+    <form onSubmit={handleSignup}>
+      <div className={styles.inputWrapper}>
+        <label htmlFor="display-name">NICKNAME</label>
         <input
           id="display-name"
           onChange={handleChangeInput}
           type="text"
           value={input.displayName}
           name="displayName"
-          style={INPUT}
           placeholder="Enter your nickname"
           required
         />
       </div>
-      <div style={{ ...TODO_BOX_STYLE, marginBottom: "40px", width: "797px" }}>
-        <label htmlFor="email" style={LABEL}>
-          EMAIL
-        </label>
+      <div className={styles.inputWrapper}>
+        <label htmlFor="email">EMAIL</label>
         <input
           id="email"
           onChange={handleChangeInput}
           type="email"
           value={input.email}
           name="email"
-          style={INPUT}
           placeholder="Enter your Email..."
           required
         />
       </div>
-      <div style={{ ...TODO_BOX_STYLE, width: "797px" }}>
-        <label htmlFor="password" style={LABEL}>
-          PASSWORD
-        </label>
+      <div className={styles.inputWrapper}>
+        <label htmlFor="password">PASSWORD</label>
         <input
           id="password"
           onChange={handleChangeInput}
@@ -114,14 +76,13 @@ const SignupPage = () => {
           name="password"
           placeholder="Enter your password"
           required
-          style={INPUT}
         />
       </div>
       <Button
         buttonType="register"
         disabled={!input.email || !input.password}
       ></Button>
-      <span style={CHANGE_SIGNIN}>
+      <span className={styles.redirectText}>
         Already a member? <Link to="/signin">Signin</Link>
       </span>
     </form>

@@ -73,43 +73,98 @@ a {
   color: inherit;
 }
 
+.light {
+  background-color: var(--light-background);
+  color: var(--light-text);
+}
+
+.dark {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+/************LIGHT MODE********************/
+/* Logo, AddButton */
+.convex-light-lg {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    -4px -4px 10px rgba(255, 255, 255, 0.94),
+    5px 5px 10px rgba(36, 65, 93, 0.18);
+}
+
+/* AddButton(mobile) */
+.convex-light-md {
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25),
+    -2px -2px 5px rgba(255, 255, 255, 0.94), 2px 2px 5px rgba(36, 65, 93, 0.18);
+}
+
+/* CheckBox, EditButton, DeleteButton*/
+.convex-light-sm {
+  box-shadow: 0px 2px 2px rgba(60, 60, 60, 0.25),
+    -2px -2px 5px rgba(255, 255, 255, 0.94), 2px 2px 5px rgba(36, 65, 93, 0.18);
+}
+
+/* TodoListItem box, AddButton(active) */
+.concave-light-lg {
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.94),
+    inset 5px 5px 10px rgba(36, 65, 93, 0.25);
+}
+/* EditButton(active), DeleteButton(active), AddButton(mobile, active)*/
+.concave-light-md {
+  box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.94),
+    inset 2px 2px 6px rgba(36, 65, 93, 0.25);
+}
+
+/* ProgressBar, CheckBox(active) */
+.concave-light-sm {
+  box-shadow: inset 0px 2px 2px rgba(60, 60, 60, 0.25),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.94),
+    inset 2px 2px 6px rgba(36, 65, 93, 0.25);
+}
+
+/********************DARK MODE******************/
+/* Logo */
+.convex-dark-lg {
+  box-shadow: -4px -4px 10px rgba(113, 113, 113, 0.7),
+    5px 5px 9px rgba(16, 16, 16, 0.61);
+}
+/* AddButton, AddButton(mobile)  */
+.convex-dark-md {
+  box-shadow: 5px 5px 8px rgba(16, 16, 16, 0.69),
+    -4px -4px 6px rgba(113, 113, 113, 0.71);
+}
+/* EditButton, DeleteButton */
+.convex-dark-sm {
+  box-shadow: -2px -2px 4px #717171, 2px 2px 11px #101010;
+}
+/* CheckBox */
+.convex-dark-ex-sm {
+  box-shadow: -2px -2px 5px rgba(113, 113, 113, 0.7),
+    2px 2px 5px rgba(16, 16, 16, 0.6);
+}
+
+.concave-dark-lg {
+  box-shadow: inset -5px -5px 10px rgba(113, 113, 113, 0.75),
+    inset 5px 5px 10px rgba(16, 16, 16, 0.6);
+}
+/* EditButton(active), DeleteButton(active), TodoListItem, AddButton(active), AddButton(mobile, active)*/
+.cancave-dark-md {
+  box-shadow: inset -3px -3px 6px rgba(121, 121, 121, 0.8),
+    inset 3px 3px 6px rgba(16, 16, 16, 0.9);
+}
+/* CheckBox(active), ProgressBar*/
+.concave-dark-sm {
+  box-shadow: inset -2px -2px 2px rgba(113, 113, 113, 0.72),
+    inset 2px 2px 3px rgba(16, 16, 16, 0.75);
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: #575f6b;
-}
-
-.todolist-container {
-  display: flex;
-  gap: 32px;
-  flex-direction: column;
-  max-height: 500px;
-  padding: 30px 24px;
-  overflow-y: scroll;
-  width: fit-content;
-  margin: 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.todolist-container::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
-}
-
-.todolist-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.todolist-container::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.todolist-container::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.521);
 }
 
 button {

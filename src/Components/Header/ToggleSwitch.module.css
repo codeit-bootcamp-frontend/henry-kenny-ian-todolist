@@ -1,0 +1,45 @@
+.container {
+  position: relative;
+}
+.lightIconDesktop {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  left: 5px;
+}
+.lightIconMobile {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 3px;
+  left: 2px;
+}
+.darkIconStarDesktop {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 5px;
+  left: 22px;
+}
+.darkIconStarMobile {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 2px;
+  left: 8px;
+}
+.darkIconMoonDesktop {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  top: 2px;
+  left: 18px;
+}
+.darkIconMoonMobile {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 6px;
+}

@@ -16,6 +16,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import styles from "./HomePage.module.css";
 
 const HomePage = ({ userInfo, isLoggedIn }) => {
   const [showModal, setShowModal] = useState(false);
@@ -87,25 +88,12 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
   if (!isLoggedIn) return <Navigate to="/signin" />;
   return (
     <>
-      <main
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginBottom: "60px",
-          paddingBottom: "90px",
-        }}
-      >
+      <main>
         <div
-          style={{
-            fontSize: "32px",
-            fontWeight: "500",
-            color: "#767676",
-          }}
+          className={styles.title}
         >{`${userInfo.displayName}님의 할일 목록`}</div>
         <ProgressBar progress={progressPercentage} />
-
-        <ul className="todolist-container">
+        <ul className={styles.todolistContainer}>
           {todoItems &&
             todoItems.map((item) => (
               <li key={item.id}>

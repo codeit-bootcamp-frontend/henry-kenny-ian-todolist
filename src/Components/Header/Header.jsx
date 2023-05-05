@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Logo from "./Logo";
 import ToggleSwitch from "./ToggleSwitch";
 import { useMediaQuery } from "react-responsive";
@@ -6,6 +6,7 @@ import { ThemeContext } from "../../Contexts/ThemeContext";
 import Button from "../Button/Button";
 import { firebaseAuth } from "../../service/firebase";
 import { useNavigate } from "react-router-dom";
+import styles from "./Header.module.css";
 
 const Header = ({ isLoggedIn }) => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -27,39 +28,26 @@ const Header = ({ isLoggedIn }) => {
       });
   };
 
+  useEffect(() => {
+    document.body.style.setProperty(
+      "background-color",
+      theme === "light" ? "#ececf1" : "#36393b"
+    );
+  }, [theme]);
+
   return (
-    <header
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: "58px",
-        marginBottom: "58px",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+    <header>
+      <div className={styles.logoContainer}>
         <Logo></Logo>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "106px",
-          right: "84px",
-        }}
-      >
+      <div className={styles.switchContainer}>
         <ToggleSwitch
           checked={theme === "light"}
           onChange={handleChange}
           isMobile={isMobile}
         />
         {isLoggedIn && (
-          <div style={{ marginTop: "20px" }}>
+          <div className={styles.btnContainer}>
             <Button onClick={handleLogout} buttonType="logout" />
           </div>
         )}

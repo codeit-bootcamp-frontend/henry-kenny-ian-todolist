@@ -54,7 +54,6 @@ function App() {
             }}
           >
             <Spinner />
-            {/* <Ellipsis /> */}
           </div>
         </>
       )}
