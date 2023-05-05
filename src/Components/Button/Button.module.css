@@ -1,14 +1,4 @@
-.edit {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #d4d4d9, #fdfdff);
-  box-shadow: 3px 3px 6px #cdcdd2, -3px -3px 6px #ffffff;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.edit,
 .delete {
   width: 80px;
   height: 80px;
@@ -20,34 +10,9 @@
   justify-content: center;
   align-items: center;
 }
-.create {
-  width: 300px;
-  height: 80px;
-  margin: 0 auto;
-  filter: drop-shadow(-4px -4px 5px #ffffff)
-    drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302));
-  background: linear-gradient(309.34deg, #f2f3f6 -13.68%, #e5e6ec 171.92%);
-  border: none;
-  border-radius: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 46px;
-}
-.login {
-  width: 300px;
-  height: 80px;
-  margin: 0 auto;
-  filter: drop-shadow(-4px -4px 5px #ffffff)
-    drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302));
-  background: linear-gradient(309.34deg, #f2f3f6 -13.68%, #e5e6ec 171.92%);
-  border: none;
-  border-radius: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 46px;
-}
+
+.create,
+.login,
 .register {
   width: 300px;
   height: 80px;
@@ -62,6 +27,8 @@
   align-items: center;
   margin-top: 46px;
 }
+
+.confirm,
 .close {
   width: 122px;
   height: 50px;
@@ -74,18 +41,7 @@
   justify-content: center;
   align-items: center;
 }
-.confirm {
-  width: 122px;
-  height: 50px;
-  filter: drop-shadow(-4px -4px 2px #ffffff)
-    drop-shadow(2px 2px 2px rgba(36, 65, 93, 0.302));
-  background: linear-gradient(309.34deg, #f2f3f6 -13.68%, #e5e6ec 171.92%);
-  border: none;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .logout {
   width: 120px;
   height: 50px;
