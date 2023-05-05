@@ -10,10 +10,10 @@ const NotFoundPage = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
+
   const themeClass = `${theme}Theme`;
-  const shadow = `convex-${theme}-lg`;
   return (
-    <main className={theme}>
+    <main className={`${styles.main} ${theme}`}>
       <div className={`${styles.wrapper}`}>
         <h1 className={`${styles.heading} ${styles[themeClass]}`}>404</h1>
         <h2 className={`${styles.content} ${styles[themeClass]}`}>Not Found</h2>

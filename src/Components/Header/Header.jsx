@@ -9,14 +9,12 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 
 const Header = ({ isLoggedIn }) => {
-  const isDark = useMediaQuery({ query: "(prefers-color-scheme: dark)" });
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
   const { theme, setTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
-    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
   };
 
   const handleLogout = () => {
@@ -29,10 +27,6 @@ const Header = ({ isLoggedIn }) => {
         console.log(err);
       });
   };
-
-  useEffect(() => {
-    setTheme(isDark ? "dark" : "light");
-  }, [isDark]);
 
   useEffect(() => {
     document.body.style.setProperty(

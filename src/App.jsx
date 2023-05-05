@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./App.css";
 import { firebaseAuth, firestore } from "./service/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { AppRouter } from "./Routers/AppRouter";
 import Spinner from "./Components/Loaders/Spinner";
+import { ThemeContext } from "./Contexts/ThemeContext";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [init, setInit] = useState(false);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, async (user) => {
@@ -46,6 +48,7 @@ function App() {
       ) : (
         <>
           <div
+            className={theme}
             style={{
               display: "flex",
               justifyContent: "center",
