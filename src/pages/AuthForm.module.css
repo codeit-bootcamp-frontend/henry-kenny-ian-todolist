@@ -7,27 +7,25 @@ form {
 label {
   height: 80px;
   width: 270px;
-  background: #edeef2;
-  box-shadow: 1px 1px 9px #a8a8a8, -1px -1px 9px #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  color: #575f6b;
   border-radius: 40px 0 0 40px;
 }
 
 input {
   background: transparent;
   width: 100%;
-  font-size: 20px;
+  height: 80px;
+  border-radius: 0 40px 40px 0;
+  font-size: 24px;
   text-indent: 28px;
-  color: #575f6b;
+  color: inherit;
 }
 
 .redirectText {
   font-size: 20px;
-  color: #767676;
   font-weight: 400;
   margin-top: 31px;
 }
@@ -45,8 +43,6 @@ input {
   width: 797px;
   position: relative;
   border-radius: 40px;
-  background: #ececf1;
-  box-shadow: inset 5px 5px 10px #d2d2d6, inset -5px -5px 10px #ffffff;
   display: flex;
   align-items: center;
 }

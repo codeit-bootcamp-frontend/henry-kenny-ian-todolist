@@ -51,6 +51,14 @@
   --light-text: #767676;
   --dark-text: #c1c1c1;
   --green: #15c714;
+
+  --concave-light-lg: inset 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.94),
+    inset 5px 5px 10px rgba(36, 65, 93, 0.25);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 #root {
@@ -81,6 +89,30 @@ a {
 .dark {
   background-color: var(--dark-background);
   color: var(--dark-text);
+}
+
+textarea.light::placeholder {
+  color: var(--light-text);
+}
+
+textarea.dark::placeholder {
+  color: var(--dark-text);
+}
+
+input.light::placeholder {
+  color: var(--light-text);
+}
+
+input.dark::placeholder {
+  color: var(--dark-text);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--light-text);
 }
 
 /************LIGHT MODE********************/
@@ -149,7 +181,7 @@ a {
     inset 5px 5px 10px rgba(16, 16, 16, 0.6);
 }
 /* EditButton(active), DeleteButton(active), TodoListItem, AddButton(active), AddButton(mobile, active)*/
-.cancave-dark-md {
+.concave-dark-md {
   box-shadow: inset -3px -3px 6px rgba(121, 121, 121, 0.8),
     inset 3px 3px 6px rgba(16, 16, 16, 0.9);
 }
@@ -159,32 +191,21 @@ a {
     inset 2px 2px 3px rgba(16, 16, 16, 0.75);
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #575f6b;
+.modal-box-light {
+  box-shadow: inset -4px -4px 3px rgba(16, 16, 16, 0.53),
+    inset 1px 1px 5px rgba(65, 57, 57, 0.53);
+}
+
+.modal-box-dark {
+  box-shadow: inset -4px -4px 4px rgba(43, 43, 43, 0.91),
+    inset 4px 4px 4px rgba(167, 167, 167, 0.73);
 }
 
 button {
   cursor: pointer;
 }
 
-button:active {
-  transform: scale(0.95);
-  box-shadow: inset 2px 2px 4px #9d9d9d, inset -2px -2px 4px #ffffff;
+input,
+label {
+  font-family: inherit;
 }
-
-/*
- convex: 표면이 바둑돌 모양
- concave: 표면이 움푹한 모양
- default: 요소가 튀어나옴
- pressed: 요소가 눌림
-*/
-
-/*
-  dark-mode: default: filter: drop-shadow(-4px -4px 10px rgba(113, 113, 113, 0.7)) drop-shadow(5px 5px 9px rgba(16, 16, 16, 0.61));
-             pressed: box-shadow: inset -5px -5px 10px rgba(113, 113, 113, 0.75), inset 5px 5px 10px rgba(16, 16, 16, 0.6);
-             background color: 
-*/

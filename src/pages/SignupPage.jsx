@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebaseAuth, firestore } from "../service/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import Button from "../Components/Button/Button";
-import { TODO_BOX_STYLE } from "../Components/TodoList/TodoListItem";
 import styles from "./AuthForm.module.css";
+import { ThemeContext } from "../Contexts/ThemeContext";
 
 const SignupPage = () => {
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [input, setInput] = useState({
     email: "",
     displayName: "",
     password: "",
   });
+  const labelClass = `${styles.label} convex-${theme}-md`;
+  const inputClass = `${styles.input} concave-${theme}-md`;
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -43,8 +46,11 @@ const SignupPage = () => {
   return (
     <form onSubmit={handleSignup}>
       <div className={styles.inputWrapper}>
-        <label htmlFor="display-name">NICKNAME</label>
+        <label className={labelClass} htmlFor="display-name">
+          NICKNAME
+        </label>
         <input
+          className={inputClass}
           id="display-name"
           onChange={handleChangeInput}
           type="text"
@@ -55,9 +61,12 @@ const SignupPage = () => {
         />
       </div>
       <div className={styles.inputWrapper}>
-        <label htmlFor="email">EMAIL</label>
+        <label className={labelClass} htmlFor="email">
+          EMAIL
+        </label>
         <input
           id="email"
+          className={inputClass}
           onChange={handleChangeInput}
           type="email"
           value={input.email}
@@ -67,8 +76,11 @@ const SignupPage = () => {
         />
       </div>
       <div className={styles.inputWrapper}>
-        <label htmlFor="password">PASSWORD</label>
+        <label className={labelClass} htmlFor="password">
+          PASSWORD
+        </label>
         <input
+          className={inputClass}
           id="password"
           onChange={handleChangeInput}
           type="password"

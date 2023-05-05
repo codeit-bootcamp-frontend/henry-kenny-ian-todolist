@@ -1,33 +1,36 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import styles from "./CheckBox.module.css";
 
-const UNPRESSED_SHADOW = {
-  boxShadow: "5px 5px 10px #cdcdd2,-5px -5px 10px #ffffff",
-};
-
-const PRESSED_SHADOW = {
-  boxShadow: "inset 5px 5px 10px #cdcdd2,inset -5px -5px 10px #ffffff",
-};
-
 const CheckBox = ({ checked, onClick, itemId }) => {
   const { theme } = useContext(ThemeContext);
-
+  const classPrefix = checked ? "concave" : "convex";
+  const checkboxClass =
+    theme === "light" ? `${classPrefix}-light-sm` : `${classPrefix}-dark-sm`;
   return (
     <button
-      className={`${styles.checkbox}`}
-      style={checked ? PRESSED_SHADOW : UNPRESSED_SHADOW}
+      className={`${styles.checkbox} ${checkboxClass} ${theme}`}
       onClick={() => {
         onClick(itemId);
       }}
     >
       {checked && (
-        <img
-          src="assets/checkmark.png"
-          width="29"
-          height="23"
-          alt="check mark"
-        />
+        <div
+          style={{
+            width: "29px",
+            height: "23px",
+          }}
+        >
+          <img
+            src={
+              theme === "light"
+                ? "assets/checkmark.png"
+                : "assets/checkmark-dark.png"
+            }
+            alt="check mark"
+            style={{ width: "100%", display: "block" }}
+          />
+        </div>
       )}
     </button>
   );

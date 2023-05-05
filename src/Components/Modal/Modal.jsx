@@ -52,9 +52,9 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
   return (
     <ModalPortal>
       <div className={styles.overlay} onClick={onClose} />
-      <div className={`${styles.wrapper}`}>
+      <div className={`${styles.wrapper} ${theme} modal-box-${theme}`}>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <input
+          <textarea
             className={`${styles.input} ${theme} concave-${theme}-sm`}
             type="text"
             placeholder="내용을 입력하세요..."

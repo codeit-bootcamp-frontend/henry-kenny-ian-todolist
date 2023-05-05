@@ -1,38 +1,8 @@
 import CheckBox from "../Button/CheckBox";
 import Button from "../Button/Button";
 import styles from "./TodoListItem.module.css";
-
-export const TODO_BOX_STYLE = {
-  height: "80px",
-  width: "638px",
-  position: "relative",
-  borderRadius: "40px",
-  background: "#ececf1",
-  boxShadow: "inset 5px 5px 10px #d2d2d6,inset -5px -5px 10px #ffffff",
-  display: "flex",
-  alignItems: "center",
-};
-
-const TODO_LIST_ITEM_STYLE = {
-  display: "flex",
-  gap: "23px",
-};
-
-const INPUT_TEXT = {
-  textIndent: "105px",
-  fontSize: "24px",
-  color: "#767676",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  width: "95%",
-  display: "-webkit-box",
-  WebkitBoxOrient: "vertical",
-  WebkitLineClamp: "1",
-  lineHeight: "2em",
-  cursor: "inherit",
-  whiteSpace: "wrap",
-  userSelect: "none",
-};
+import { useContext } from "react";
+import { ThemeContext } from "../../Contexts/ThemeContext";
 
 const TodoListItem = ({
   id,
@@ -42,8 +12,10 @@ const TodoListItem = ({
   onClickEdit,
   onClickDelete,
 }) => {
+  const { theme } = useContext(ThemeContext);
   const textDecoration = isComplete ? "line-through" : "none";
-
+  const textBoxClass =
+    theme === "light" ? "concave-light-sm" : "concave-dark-md";
   const handleEdit = () => {
     onClickEdit(id);
   };
@@ -58,7 +30,7 @@ const TodoListItem = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.textBox}>
+      <div className={`${styles.textBox} ${textBoxClass}`}>
         <CheckBox
           onClick={handleClickCheckBox}
           checked={isComplete}

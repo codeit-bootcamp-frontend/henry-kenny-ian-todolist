@@ -136,3 +136,9 @@ input {
   -moz-appearance: none;
   appearance: none;
 }
+
+textarea {
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+}

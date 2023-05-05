@@ -1,156 +1,105 @@
 export const buttonTypeMap = {
   edit: {
-    src: "assets/pencil.png",
-    width: "24px",
-    height: "24px",
+    imgBoxWidth: "24px",
+    imgBoxHeight: "24px",
     type: "button",
-    style: {
-      width: "80px",
-      height: "80px",
-      borderRadius: "10px",
-      background: "linear-gradient(145deg, #d4d4d9, #fdfdff)",
-      boxShadow: "3px 3px 6px #cdcdd2, -3px -3px 6px #ffffff",
-      border: "none",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    light: {
+      src: "assets/pencil.png",
+      className: "convex-light-sm",
+    },
+    dark: {
+      src: "assets/pencil-dark.png",
+      className: "convex-dark-sm",
     },
   },
   delete: {
-    src: "assets/delete.png",
-    width: "21px",
-    height: "27px",
+    imgBoxWidth: "21px",
+    imgBoxHeight: "27px",
     type: "button",
-    style: {
-      width: "80px",
-      height: "80px",
-      borderRadius: "10px",
-      background: "linear-gradient(145deg, #d4d4d9, #fdfdff)",
-      boxShadow: "3px 3px 6px #cdcdd2, -3px -3px 6px #ffffff",
-      border: "none",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    light: {
+      src: "assets/delete.png",
+      className: "convex-light-sm",
+    },
+    dark: {
+      src: "assets/delete-dark.png",
+      className: "convex-dark-sm",
     },
   },
   create: {
-    src: "assets/plusbutton.png",
-    width: "36px",
-    height: "36px",
+    imgBoxWidth: "36px",
+    imgBoxHeight: "36px",
     type: "button",
-    style: {
-      width: "300px",
-      height: "80px",
-      margin: "0 auto",
-      filter:
-        "drop-shadow(-4px -4px 5px #FFFFFF) drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302))",
-      background:
-        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-      border: "none",
-      borderRadius: "40px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: "46px",
+    light: {
+      src: "assets/plusbutton.png",
+      className: "convex-light-lg",
+    },
+    dark: {
+      src: "assets/plusbutton-dark.png",
+      className: "convex-dark-md",
     },
   },
   login: {
-    src: "assets/login-text.png",
-    width: "100px",
-    height: "30px",
+    imgBoxWidth: "100px",
     type: "submit",
-    style: {
-      width: "300px",
-      height: "80px",
-      margin: "0 auto",
-      filter:
-        "drop-shadow(-4px -4px 5px #FFFFFF) drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302))",
-      background:
-        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-      border: "none",
-      borderRadius: "40px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: "46px",
+    light: {
+      src: "assets/login-text.png",
+      className: "convex-light-lg",
+    },
+    dark: {
+      src: "assets/login-text-dark.png",
+      className: "convex-dark-md",
     },
   },
   register: {
-    src: "assets/register-text.png",
-    width: "164px",
-    height: "30px",
+    imgBoxWidth: "164px",
     type: "submit",
-    style: {
-      width: "300px",
-      height: "80px",
-      margin: "0 auto",
-      filter:
-        "drop-shadow(-4px -4px 5px #FFFFFF) drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302))",
-      background:
-        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-      border: "none",
-      borderRadius: "40px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: "46px",
+    light: {
+      src: "assets/register-text.png",
+      className: "convex-light-lg",
+    },
+    dark: {
+      src: "assets/register-text-dark.png",
+      className: "convex-dark-md",
     },
   },
   close: {
-    src: "assets/cancelmark.png",
-    width: "24px",
-    height: "24px",
+    imgBoxWidth: "24px",
+    imgBoxHeight: "24px",
     type: "button",
-    style: {
-      width: "122px",
-      height: "50px",
-      filter:
-        "drop-shadow(-4px -4px 2px #FFFFFF) drop-shadow(2px 2px 2px rgba(36, 65, 93, 0.302))",
-      background:
-        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-      border: "none",
-      borderRadius: "10px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    light: {
+      src: "assets/cancelmark.png",
+      className: "convex-light-sm",
+    },
+    dark: {
+      src: "assets/cancelmark-dark.png",
+      className: "convex-dark-sm",
     },
   },
   confirm: {
-    src: "assets/checkmark.png",
-    width: "34px",
-    height: "26.56px",
+    imgBoxWidth: "34px",
+    imgBoxHeight: "26.56px",
     type: "submit",
-    style: {
-      width: "122px",
-      height: "50px",
-      filter:
-        "drop-shadow(-4px -4px 2px #FFFFFF) drop-shadow(2px 2px 2px rgba(36, 65, 93, 0.302))",
-      background:
-        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-      border: "none",
-      borderRadius: "10px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    light: {
+      src: "assets/checkmark.png",
+      className: "convex-light-sm",
+    },
+    dark: {
+      src: "assets/checkmark-dark.png",
+      className: "convex-dark-sm",
     },
   },
   logout: {
     src: "assets/logout-text.png",
-    width: "72px",
-    height: "12px",
+    imgBoxWidth: "72px",
+    imgBoxHeight: "12px",
     type: "button",
-    style: {
-      width: "120px",
-      height: "50px",
-      filter:
-        "drop-shadow(-4px -4px 5px #FFFFFF) drop-shadow(3px 3px 5px rgba(36, 65, 93, 0.302))",
-      background:
-        "linear-gradient(309.34deg, #F2F3F6 -13.68%, #E5E6EC 171.92%)",
-      border: "none",
-      borderRadius: "25px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    light: {
+      src: "assets/logout-text.png",
+      className: "convex-light-md",
+    },
+    dark: {
+      src: "assets/logout-text-dark.png",
+      className: "convex-dark-md",
     },
   },
 };

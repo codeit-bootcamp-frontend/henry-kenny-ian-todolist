@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { firebaseAuth } from "../service/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Components/Button/Button";
 import Spinner from "../Components/Loaders/Spinner";
 import styles from "./AuthForm.module.css";
+import { ThemeContext } from "../Contexts/ThemeContext";
 
 const SigninPage = () => {
+  const { theme } = useContext(ThemeContext);
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const labelClass = `${styles.label} convex-${theme}-md`;
+  const inputClass = `${styles.input} concave-${theme}-md`;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.currentTarget;
@@ -43,12 +47,12 @@ const SigninPage = () => {
     );
   return (
     <form className={styles.form} onSubmit={handleSignin}>
-      <div className={styles.inputWrapper}>
-        <label className={styles.label} htmlFor="email">
+      <div className={`${styles.inputWrapper}`}>
+        <label className={labelClass} htmlFor="email">
           EMAIL
         </label>
         <input
-          className={styles.input}
+          className={inputClass}
           id="email"
           onChange={handleChangeInput}
           type="email"
@@ -59,11 +63,11 @@ const SigninPage = () => {
         />
       </div>
       <div className={styles.inputWrapper}>
-        <label className={styles.label} htmlFor="password">
+        <label className={labelClass} htmlFor="password">
           PASSWORD
         </label>
         <input
-          className={styles.input}
+          className={inputClass}
           id="password"
           onChange={handleChangeInput}
           type="password"

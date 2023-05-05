@@ -1,6 +1,4 @@
 .container {
-  box-shadow: inset 2px 2px 5px rgb(179 179 179),
-    inset -2px -2px 5px rgb(255 255 255);
   width: 770px;
   height: 20px;
   border-radius: 10px;
@@ -11,5 +9,5 @@
   background: linear-gradient(90deg, #007a31 -6.7%, #23fb00 95%);
   height: 100%;
   border-radius: 10px;
-  transition: width 1s cubic-bezier(0, 0.1, 0, 1);
+  transition: width 0.5s ease-in-out;
 }
