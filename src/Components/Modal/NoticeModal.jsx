@@ -13,24 +13,25 @@ const NoticeModal = ({ onClose, message }) => {
 
   return (
     <ModalPortal>
-      <div className={styles.overlay} onClick={onClose} />
-      <div className={`${styles.wrapper} ${theme} modal-box-${theme}`}>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input
-            className={`${styles.input} ${styles.doneInput} convex-${theme}-md ${theme}`}
-            type="text"
-            readOnly
-            placeholder={message}
-          ></input>
-          <div className={styles.doneButtonsContainer}>
-            <Button
-              buttonType="close"
-              onClick={(e) => {
-                onClose();
-              }}
-            />
-          </div>
-        </form>
+      <div className={styles.overlay} onClick={onClose}>
+        <div className={`${styles.wrapper} ${theme} modal-box-${theme}`}>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input
+              className={`${styles.input} ${styles.doneInput} convex-${theme}-md ${theme}`}
+              type="text"
+              readOnly
+              placeholder={message}
+            ></input>
+            <div className={styles.doneButtonsContainer}>
+              <Button
+                buttonType="close"
+                onClick={(e) => {
+                  onClose();
+                }}
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </ModalPortal>
   );

@@ -12,10 +12,16 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../../service/firebase";
 import styles from "./Modal.module.css";
+import { motion } from "framer-motion";
+
+const animation = {
+  initial: {},
+};
 
 const Modal = ({ onClose, userInfo, todoItem }) => {
   const { theme } = useContext(ThemeContext);
   const titleRef = useRef(null);
+  const [isClosing, setIsClosing] = useState(false);
   const queryPath = `/users/${userInfo?.uid}/todos`;
   const [title, setTitle] = useState(todoItem ? todoItem.title : "");
   const handleChange = () => {
@@ -51,28 +57,40 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
 
   return (
     <ModalPortal>
-      <div className={styles.overlay} onClick={onClose} />
-      <div className={`${styles.wrapper} ${theme} modal-box-${theme}`}>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <textarea
-            className={`${styles.input} ${theme} concave-${theme}-sm`}
-            type="text"
-            placeholder="내용을 입력하세요..."
-            value={title}
-            ref={titleRef}
-            onChange={handleChange}
-          />
-          <div className={styles.buttonsContainer}>
-            <Button buttonType="close" onClick={onClose} />
-            <Button
-              buttonType="confirm"
-              onClick={(e) => {
-                handleSubmit(e);
-                onClose();
-              }}
+      <div className={styles.overlay} onClick={onClose}>
+        <motion.div
+          initial={{ y: 200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 200, opacity: 0 }}
+          className={`${styles.wrapper} ${theme} modal-box-${theme}`}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <textarea
+              className={`${styles.input} ${theme} concave-${theme}-sm`}
+              type="text"
+              placeholder="내용을 입력하세요..."
+              value={title}
+              ref={titleRef}
+              onChange={handleChange}
             />
-          </div>
-        </form>
+            <div className={styles.buttonsContainer}>
+              <Button buttonType="close" onClick={onClose} />
+              <Button
+                buttonType="confirm"
+                onClick={(e) => {
+                  handleSubmit(e);
+                  setIsClosing(true);
+                  setTimeout(() => {
+                    onClose();
+                  }, 200);
+                }}
+              />
+            </div>
+          </form>
+        </motion.div>
       </div>
     </ModalPortal>
   );

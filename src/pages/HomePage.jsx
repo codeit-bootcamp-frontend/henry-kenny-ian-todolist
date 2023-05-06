@@ -17,6 +17,7 @@ import {
 } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import styles from "./HomePage.module.css";
+import { AnimatePresence } from "framer-motion";
 
 const HomePage = ({ userInfo, isLoggedIn }) => {
   const [showModal, setShowModal] = useState(false);
@@ -110,19 +111,24 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
           <Button buttonType="create" onClick={handleClickOpenModal} />
         </div>
       </main>
-      {showModal && (
-        <Modal
-          onClose={handleClickCloseModal}
-          userInfo={userInfo}
-          todoItem={editTarget ?? undefined}
-        />
-      )}
-      {showDone && (
-        <NoticeModal
-          onClose={handleCloseDoneModal}
-          message="달성률 100%를 축하합니다!"
-        />
-      )}
+
+      <AnimatePresence mode="wait">
+        {showModal && (
+          <Modal
+            onClose={handleClickCloseModal}
+            userInfo={userInfo}
+            todoItem={editTarget ?? undefined}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {showDone && (
+          <NoticeModal
+            onClose={handleCloseDoneModal}
+            message="달성률 100%를 축하합니다!"
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
