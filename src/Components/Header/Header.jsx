@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "./Logo";
 import ToggleSwitch from "./ToggleSwitch";
 import { useMediaQuery } from "react-responsive";
@@ -9,13 +9,18 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 
 const Header = ({ isLoggedIn }) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [device, setDevice] = useState(isMobile ? "mobile" : "desktop");
   const { theme, setTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
+
+  useEffect(() => {
+    setDevice(isMobile ? "mobile" : "desktop");
+  }, [isMobile]);
 
   const handleLogout = () => {
     firebaseAuth
@@ -43,14 +48,25 @@ const Header = ({ isLoggedIn }) => {
     <header>
       <div className={styles.dummyBox}></div>
       <div className={styles.logoContainer}>
-        <Logo></Logo>
+        <Logo isMobile={isMobile}></Logo>
       </div>
       <div className={styles.switchContainer}>
-        <ToggleSwitch
-          checked={theme === "light"}
-          onChange={handleChange}
-          isMobile={isMobile}
-        />
+        {device === "mobile" ? (
+          <ToggleSwitch
+            checked={theme === "light"}
+            onChange={handleChange}
+            isMobile={isMobile}
+            handleDiameter={20}
+          />
+        ) : (
+          <ToggleSwitch
+            checked={theme === "light"}
+            onChange={handleChange}
+            isMobile={isMobile}
+            handleDiameter={38}
+          />
+        )}
+
         {isLoggedIn && (
           <div className={styles.btnContainer}>
             <Button onClick={handleLogout} buttonType="logout" />

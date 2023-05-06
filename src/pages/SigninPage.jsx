@@ -81,10 +81,12 @@ const SigninPage = () => {
           required
         />
       </div>
-      <Button
-        buttonType="login"
-        disabled={!input.email || !input.password}
-      ></Button>
+      <div className={styles.buttonWrapper}>
+        <Button
+          buttonType="login"
+          disabled={!input.email || !input.password}
+        ></Button>
+      </div>
       <span className={styles.redirectText}>
         Not a member yet? <Link to="/signup">Register</Link>
       </span>

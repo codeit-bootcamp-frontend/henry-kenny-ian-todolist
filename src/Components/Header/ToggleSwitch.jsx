@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import Switch from "react-switch";
+import React, { useState, useEffect } from "react";
+import ReactSwitch from "react-switch";
 import styles from "./ToggleSwitch.module.css";
 
-const ToggleSwitch = ({ checked, onChange, isMobile }) => {
+const ToggleSwitch = ({ checked, onChange, isMobile, handleDiameter }) => {
   const [device, setDevice] = useState(isMobile ? "mobile" : "desktop");
+
+  useEffect(() => {
+    setDevice(isMobile ? "mobile" : "desktop");
+  }, [isMobile]);
+
   return (
-    <Switch
+    <ReactSwitch
       checked={checked}
       onChange={onChange}
-      handleDiameter={isMobile ? 20 : 38}
+      handleDiameter={handleDiameter}
       offColor="#4d4d4d"
       onColor="#15C714"
       offHandleColor="#fff"
@@ -50,6 +55,7 @@ const ToggleSwitch = ({ checked, onChange, isMobile }) => {
         </div>
       }
       className="react-switch"
+      id="small-radius-switch"
     />
   );
 };

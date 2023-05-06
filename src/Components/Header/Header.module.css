@@ -6,6 +6,7 @@ header {
   align-items: center;
   padding: 0 168px;
 }
+
 @media only screen and (max-width: 1200px) {
   header {
     padding: 0 100px;
@@ -16,9 +17,6 @@ header {
   header {
     padding: 0 48px;
   }
-}
-
-@media only screen and (max-width: 768px) {
 }
 
 .dummyBox {
@@ -40,4 +38,24 @@ header {
 
 .btnContainer {
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    flex-direction: column-reverse;
+    margin: 30px 0;
+  }
+  .switchContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dummyBox {
+    display: none;
+  }
+  .btnContainer {
+    margin-top: 0;
+  }
 }

@@ -22,7 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 46px;
 }
 
 .confirm,
@@ -44,4 +43,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .edit,
+  .delete {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 6px;
+  }
+
+  .logout {
+    width: 64px;
+    height: 26px;
+  }
+
+  .create {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    position: fixed;
+    bottom: 60px;
+    right: 46px;
+  }
+
+  .login,
+  .register {
+    width: 180px;
+    max-width: 400px;
+    height: 48px;
+    margin-top: 0;
+  }
 }

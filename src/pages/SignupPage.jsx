@@ -65,7 +65,7 @@ const SignupPage = () => {
       </div>
     );
   return (
-    <form onSubmit={handleSignup} noValidate>
+    <form className={styles.form} onSubmit={handleSignup} noValidate>
       <div className={styles.inputWrapper}>
         <label className={labelClass} htmlFor="display-name">
           NICKNAME
@@ -111,10 +111,12 @@ const SignupPage = () => {
           required
         />
       </div>
-      <Button
-        buttonType="register"
-        disabled={!input.email || !input.password}
-      ></Button>
+      <div className={styles.buttonWrapper}>
+        <Button
+          buttonType="register"
+          disabled={!input.email || !input.password}
+        ></Button>
+      </div>
       <span className={styles.redirectText}>
         Already a member? <Link to="/signin">Signin</Link>
       </span>

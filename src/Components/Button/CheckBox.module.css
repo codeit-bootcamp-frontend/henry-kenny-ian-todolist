@@ -10,3 +10,20 @@
   justify-content: center;
   align-items: center;
 }
+.imgContainer {
+  width: 29px;
+  height: 23px;
+}
+
+@media screen and (max-width: 768px) {
+  .checkbox {
+    width: 33px;
+    height: 33px;
+    top: 11px;
+    left: 12px;
+  }
+  .imgContainer {
+    width: 19px;
+    height: 15px;
+  }
+}

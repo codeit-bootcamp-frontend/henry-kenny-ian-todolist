@@ -11,3 +11,12 @@
   width: 94px;
   height: 102px;
 }
+.logoImgMobile {
+  width: 50px;
+  height: 54px;
+}
+.logoImgMobile img,
+.logoImg img {
+  width: 100%;
+  display: block;
+}

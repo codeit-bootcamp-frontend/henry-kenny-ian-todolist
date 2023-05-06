@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { buttonTypeMap } from "../../static/maps";
+import { desktopButtonMap, mobileButtonMap } from "../../static/maps";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import styles from "./Button.module.css";
+import { useMediaQuery } from "react-responsive";
 
 const Button = ({ onClick, buttonType }) => {
   const { theme } = useContext(ThemeContext);
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const buttonTypeMap = isMobile ? mobileButtonMap : desktopButtonMap;
   const targetBtn = buttonTypeMap[buttonType];
   const buttonStyle = `${styles[buttonType]}`;
   const [buttonClass, setButtonClass] = useState(

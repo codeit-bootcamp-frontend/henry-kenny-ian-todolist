@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Navigate } from "react-router-dom";
 import Modal from "../Components/Modal/Modal";
 import NoticeModal from "../Components/Modal/NoticeModal";
+import DoneModal from "../Components/Modal/DoneModal";
 import TodoListItem from "../Components/TodoList/TodoListItem";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import Button from "../Components/Button/Button";
@@ -83,6 +84,8 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
   useEffect(() => {
     if (progressPercentage === 1) {
       setShowDone(true);
+    } else {
+      setShowDone(false);
     }
   }, [progressPercentage]);
 
@@ -107,7 +110,7 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
               </li>
             ))}
         </ul>
-        <div>
+        <div style={{ marginTop: "40px" }}>
           <Button buttonType="create" onClick={handleClickOpenModal} />
         </div>
       </main>
@@ -123,10 +126,10 @@ const HomePage = ({ userInfo, isLoggedIn }) => {
       </AnimatePresence>
       <AnimatePresence mode="wait">
         {showDone && (
-          <NoticeModal
+          <DoneModal
             onClose={handleCloseDoneModal}
             message="달성률 100%를 축하합니다!"
-          />
+          ></DoneModal>
         )}
       </AnimatePresence>
     </>

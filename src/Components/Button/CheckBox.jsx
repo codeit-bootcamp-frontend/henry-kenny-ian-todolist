@@ -15,12 +15,7 @@ const CheckBox = ({ checked, onClick, itemId }) => {
       }}
     >
       {checked && (
-        <div
-          style={{
-            width: "29px",
-            height: "23px",
-          }}
-        >
+        <div className={styles.imgContainer}>
           <img
             src={
               theme === "light"
