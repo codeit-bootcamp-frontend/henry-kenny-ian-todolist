@@ -22,6 +22,22 @@ main {
   margin: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  /* --x: 10deg;
+  --y: 10deg;
+  --_max-rotateY: 90deg;
+  --_max-rotateX: 90deg;
+  transform-style: preserve-3d;
+  transform: rotateY(
+      clamp(calc(var(--_max-rotateY) * -1), var(--y), var(--_max-rotateY))
+    )
+    rotateX(
+      clamp(calc(var(--_max-rotateX) * -1), var(--x), var(--_max-rotateX))
+    );
+  animation: rotate-y;
+  will-change: transform;
+  transition: transform 0.1s ease;
+  -webkit-animation: rotate-y 5s ease-in-out infinite;
+  animation: rotate-y 5s ease-in-out infinite; */
 }
 
 .todolistContainer::-webkit-scrollbar-button {
@@ -47,3 +63,9 @@ main {
     width: 94%;
   }
 }
+
+/* @keyframes rotate-y {
+  30% {
+    transform: rotateY(-10deg) rotateX(10deg);
+  }
+} */

@@ -2,16 +2,25 @@
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
   backdrop-filter: blur(10px);
+  transition: backdrop-filter 1s ease;
+  animation: overlay 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes overlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .wrapper {
-  position: fixed;
-  top: 50%;
-  left: 50%;
   border-radius: 26px;
-  transform: translate(-50%, -50%);
   text-align: center;
   width: 556px;
   height: 278px;
