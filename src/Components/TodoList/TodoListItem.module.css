@@ -28,6 +28,18 @@
   user-select: none;
 }
 
+.dummyItem {
+  display: none;
+  width: 0px;
+  flex-grow: 3;
+}
+
+@media only screen and (max-width: 430px) {
+  .dummyItem {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .wrapper {
     display: flex;
@@ -39,6 +51,8 @@
     height: 50px;
     width: clamp(20.125rem, 5.454rem + 62.595vw, 35.5rem);
     position: relative;
+    flex-grow: 1;
+    transition: flex-grow 2s ease;
   }
 
   .textWrapper {
@@ -53,5 +67,11 @@
     line-height: 2em;
     cursor: inherit;
     user-select: none;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .textWrapper {
+    cursor: pointer;
   }
 }

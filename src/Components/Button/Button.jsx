@@ -3,6 +3,7 @@ import { desktopButtonMap, mobileButtonMap } from "../../static/maps";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import styles from "./Button.module.css";
 import { useMediaQuery } from "react-responsive";
+import { motion } from "framer-motion";
 
 const Button = ({ onClick, buttonType }) => {
   const { theme } = useContext(ThemeContext);
@@ -28,7 +29,10 @@ const Button = ({ onClick, buttonType }) => {
   }, [theme]);
 
   return (
-    <button
+    <motion.button
+      initial={{ opacity: 0, scale: 0.5, x: 100 }}
+      animate={{ opacity: 1, scale: 1, x: 0 }}
+      exit={{ opacity: 0, scale: 0.5, x: 100 }}
       onClick={onClick}
       onPointerDown={changeToConcave}
       onPointerLeave={changeToConvex}
@@ -43,7 +47,7 @@ const Button = ({ onClick, buttonType }) => {
           style={{ width: "100%", display: "block" }}
         />
       </div>
-    </button>
+    </motion.button>
   );
 };
 

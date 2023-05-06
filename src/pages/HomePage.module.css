@@ -27,6 +27,7 @@ main {
   margin: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: hidden;
   /* --x: 10deg;
   --y: 10deg;
   --_max-rotateY: 90deg;

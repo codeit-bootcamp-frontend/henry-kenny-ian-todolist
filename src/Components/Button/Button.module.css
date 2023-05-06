@@ -48,7 +48,6 @@
 @media only screen and (max-width: 768px) {
   .edit,
   .delete {
-    display: none;
     width: 46px;
     height: 46px;
     border-radius: 6px;

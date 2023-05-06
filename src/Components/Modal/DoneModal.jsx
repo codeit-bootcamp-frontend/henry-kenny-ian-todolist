@@ -18,7 +18,7 @@ const DoneModal = ({ message, onClose }) => {
     [theme]
   );
   useEffect(() => {
-    let timer = setTimeout(() => onClose(), 1000);
+    let timer = setTimeout(() => onClose(), 2000);
     return () => {
       clearTimeout(timer);
     };
