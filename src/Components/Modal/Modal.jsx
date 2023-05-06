@@ -14,21 +14,29 @@ import { firestore } from "../../service/firebase";
 import styles from "./Modal.module.css";
 import { motion } from "framer-motion";
 
-const animation = {
-  initial: {},
-};
-
 const Modal = ({ onClose, userInfo, todoItem }) => {
   const { theme } = useContext(ThemeContext);
   const titleRef = useRef(null);
-  const [isClosing, setIsClosing] = useState(false);
   const queryPath = `/users/${userInfo?.uid}/todos`;
   const [title, setTitle] = useState(todoItem ? todoItem.title : "");
   const handleChange = () => {
     if (!titleRef.current) return;
     setTitle(titleRef.current.value);
   };
-
+  const toastPopUpAnimation = {
+    initial: {
+      y: 200,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+    exit: {
+      y: 200,
+      opacity: 0,
+    },
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -59,9 +67,10 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
     <ModalPortal>
       <div className={styles.overlay} onClick={onClose}>
         <motion.div
-          initial={{ y: 200, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 200, opacity: 0 }}
+          variants={toastPopUpAnimation}
+          initial={"initial"}
+          animate={"animate"}
+          exit={"exit"}
           className={`${styles.wrapper} ${theme} modal-box-${theme}`}
           onClick={(e) => {
             e.stopPropagation();
@@ -82,10 +91,7 @@ const Modal = ({ onClose, userInfo, todoItem }) => {
                 buttonType="confirm"
                 onClick={(e) => {
                   handleSubmit(e);
-                  setIsClosing(true);
-                  setTimeout(() => {
-                    onClose();
-                  }, 200);
+                  onClose();
                 }}
               />
             </div>

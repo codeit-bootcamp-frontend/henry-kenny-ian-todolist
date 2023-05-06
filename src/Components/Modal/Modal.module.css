@@ -4,7 +4,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   transition: backdrop-filter 1s ease;
-  animation: overlay 0.3s ease;
+  animation: overlay 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,4 +80,20 @@
   display: flex;
   justify-content: center;
   width: 322px;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 26px 26px 0 0;
+  }
+  .form {
+    width: 100%;
+  }
+  .input {
+    width: 80%;
+    height: 80px;
+  }
 }
