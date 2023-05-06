@@ -209,3 +209,10 @@ input,
 label {
   font-family: inherit;
 }
+
+#toast-portal {
+  position: fixed;
+  z-index: 10;
+  top: 20px;
+  left: 20px;
+}

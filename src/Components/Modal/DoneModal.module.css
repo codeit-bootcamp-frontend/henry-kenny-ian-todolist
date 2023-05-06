@@ -1,0 +1,35 @@
+.wrapper {
+  width: 240px;
+  height: 40px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 40px;
+  margin: 0 auto;
+}
+.content {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+.lightBackground {
+  background-color: var(--light-background);
+}
+.darkBackground {
+  background-color: var(--dark-background);
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    width: 140px;
+    height: 24px;
+  }
+  .content {
+    font-size: 10px;
+    font-weight: 500;
+  }
+}
