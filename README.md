@@ -1,4 +1,24 @@
-# Todo List Bunny
+
+<h1 align="center">Todo List Bunny</h1>
+
+<div align="center">
+
+<img style="
+    margin-bottom: 0px; 
+" src="https://user-images.githubusercontent.com/45449387/236661464-6ab72246-0179-4e15-acab-4f230501b635.png" width="150px" alt="todolist bunny"  />
+
+<br>
+
+[![GitHub Stars](https://img.shields.io/github/stars/codeit-bootcamp-frontend/henry-kenny-ian-todolist?style=for-the-badge)](https://github.com/codeit-bootcamp-frontend/henry-kenny-ian-todolist/stargazers) [![GitHub Stars](https://img.shields.io/github/issues/codeit-bootcamp-frontend/henry-kenny-ian-todolist?style=for-the-badge)](https://github.com/codeit-bootcamp-frontend/henry-kenny-ian-todolist/issues) [![Current Version](https://img.shields.io/badge/version-1.0.0-black?style=for-the-badge)](https://github.com/codeit-bootcamp-frontend/henry-kenny-ian-todolist) [![GitHub License](https://img.shields.io/github/license/codeit-bootcamp-frontend/henry-kenny-ian-todolist?style=for-the-badge)](https://github.com/codeit-bootcamp-frontend/henry-kenny-ian-todolist/license)
+
+<hr>
+
+</div>
+
+### Contributors
+
+| [🐇Henry](https://github.com/wooleejaan) | [🍑 Kenny](https://github.com/SeyoungCho) | [🥔 Ian](https://github.com/drizzle96) | 
+| ----------------------------------------- | ---------------------------------------- | ------------------------------------------ | 
 
 ### tech stacks
 
@@ -10,8 +30,11 @@
 **Framework**<br>
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-**Server**<br>
+**Server & Database**<br>
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
+
+**Animation**<br>
+![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue)
 
 **Collaboration Tool**<br>
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
@@ -34,70 +57,99 @@
 **Others**<br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-## UI 디자인
+
+
+## UI/Design
 
 - neumorphic UI 디자인 적용
 
-## 기본 기능
+## Features
 
 - 로그인, 회원가입 기능
-- 반응형 레이아웃 (데스크탑/태블릿 : 768px 이상, 모바일 : 430px 이상 767px 이하)
+- 반응형 레이아웃 
+  - 데스크탑/태블릿 : 768px 이상
+  - 모바일 : 767px 이하, 최소 375px까지 지원
 - 할일 달성률을 프로그레스바로 표현
+  - 달성률 100% 달성 시 알림 메세지 토스트
 - 할일 목록
   - 평소에는 elipsis, hover 시 전부 보여주기 (hover text)
-  - 목록 overflow 시 스크롤
-- 할일 목록 추가/삭제/수정
-- 할일 체크(Done) 기능
+  - 목록에 아이템이 추가되어 overflow시 스크롤 기능
+  - 할일 아이템 추가/삭제/수정 기능
+  - 할일 아이템 체크(Done) 기능
 - 다크/라이트 모드 지원
-- 추가/수정 시 모달 기능 (모달에는 확인/취소 버튼)
+- 모달 기능
+  - 할일 아이템 추가, 수정 시 form 모달
+  - 로그인, 회원가입시 에러 메세지 모달
 
-## 애니메이션
+## Animations
 
 - 모달 애니메이션
 - 프로그레스바 애니메이션 (Done 체크시 자연스럽게 늘어나도록)
 - 스와이프 기능: 모바일 버전에서 밀어서 삭제 버튼 보이기 (미는 건, 데스크탑에서는 드래그 + 모바일에서는 터치 스타트/엔드)
 
-## 컴포넌트
+## Screens/Components
 
-- 헤더
-  <img width="701" alt="image" src="https://user-images.githubusercontent.com/110705019/235569503-3da0a42a-b5b7-4f3b-8b6b-e475f0afb39c.png">
+### Header
+- PC
 
-  - 로고
-  - 테마 토글 스위치
-    <img width="408" alt="image" src="https://user-images.githubusercontent.com/110705019/235569759-28d902e6-d4f4-4fe1-939c-b4b0ff588c04.png">
+![image](https://user-images.githubusercontent.com/45449387/236660747-5b3a7442-d04f-4535-93c4-3beaaee1b8c4.png)
+- Mobile
 
-- 메인
+![image](https://user-images.githubusercontent.com/45449387/236660782-27f08039-2222-4cc3-9b62-43192e368833.png)
 
-  - 프로그레스바
-    <img width="467" alt="image" src="https://user-images.githubusercontent.com/110705019/235569404-27c7edb9-634c-407a-bd3e-ad46a8d9a7a8.png">
 
-  - 할일 목록(할일 아이템 리스트 - overflow, scroll)
-    <img width="698" alt="image" src="https://user-images.githubusercontent.com/110705019/235569549-866bebc6-e2eb-4f1d-8a5e-f3777564bbcc.png">
+### Main
+- PC
 
-    - 할일 아이템 (input이 아니라 div로)
-      - 버튼들(체크박스, 삭제, 수정)
-        <img width="401" alt="image" src="https://user-images.githubusercontent.com/110705019/235570240-5de8be49-bfd9-4163-9bd1-22516a643290.png">
+![image](https://user-images.githubusercontent.com/45449387/236660869-9815e9ce-eb5d-4ff3-8390-340ca0be569c.png)
+- Mobile
 
-  - 할일 목록 추가 버튼
+![image](https://user-images.githubusercontent.com/45449387/236660855-e7b1ea60-a9ef-4cf8-8821-ebb727a36388.png)
 
-    <img width="373" alt="image" src="https://user-images.githubusercontent.com/110705019/235569965-4964900d-0f8f-49f8-9075-33dbb2811d3e.png">
+### Signin/Signup Form
 
-  - 모달창
-    <img width="697" alt="image" src="https://user-images.githubusercontent.com/110705019/235569667-f21a9b35-7616-46f0-a5c0-c610df6bad6e.png">
+- PC
 
-    - input으로 구현
-    - 버튼들 (확인, 취소)
+![image](https://user-images.githubusercontent.com/45449387/236661011-3d63ec28-3db5-4fe0-83bc-488baf191cc8.png)
+![image](https://user-images.githubusercontent.com/45449387/236661097-5b24267d-d223-4cf6-be1c-96c51b285e14.png)
 
-- 참고, 버튼 컴포넌트 2개로 (prop으로 넘겨줘서 재사용)
 
-  - 추가/삭제/수정 버튼
+- Mobile 
 
-    - 할일 아이템 버튼 (삭제, 수정)
-    - 할일 목록 추가 버튼
+![image](https://user-images.githubusercontent.com/45449387/236661031-791556fd-c49a-488f-a3b3-fc4087cacb7e.png)<br>
+![image](https://user-images.githubusercontent.com/45449387/236661043-66c37452-31bc-498d-a347-595b54ceca24.png)
 
-  - 체크 박스 버튼
+### Modals
+- PC
 
-## TODO
+![image](https://user-images.githubusercontent.com/45449387/236661201-a2311663-a9ec-4ef7-bd84-62467acb352a.png)
+
+- Mobile 
+
+![image](https://user-images.githubusercontent.com/45449387/236661222-4de35d53-d844-4576-beea-6f80d22f282d.png)
+
+### Toast
+
+- PC
+
+![image](https://user-images.githubusercontent.com/45449387/236661344-a3d153c7-779b-42eb-bfbe-fc147d9bec42.png)
+
+- Mobile
+
+![image](https://user-images.githubusercontent.com/45449387/236661326-51aa026e-15f0-459e-b324-a32a9edfb2c3.png)
+
+### Dark Mode
+
+- PC
+![image](https://user-images.githubusercontent.com/45449387/236662106-9d08ce23-490c-4840-92f2-17ad15574342.png)
+
+- Mobile
+
+![image](https://user-images.githubusercontent.com/45449387/236662155-95c3060c-f4d8-46da-b7b2-65ccd74c1c80.png)
+
+
+
+## TODOS
 
 1. 컴포넌트들 만들기
 
