@@ -15,12 +15,16 @@
 
 </div>
 
+### Deploy Link
+https://todolist-bunny.netlify.app
+
+
 ### Contributors
 
 | [🐇Henry](https://github.com/wooleejaan) | [🍑 Kenny](https://github.com/SeyoungCho) | [🥔 Ian](https://github.com/drizzle96) | 
 | ----------------------------------------- | ---------------------------------------- | ------------------------------------------ | 
 
-### tech stacks
+### Tech Stacks
 
 **Language**<br>
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
