@@ -23,7 +23,7 @@ const CheckBox = ({ checked, onClick, itemId }) => {
                 : "assets/checkmark-dark.png"
             }
             alt="check mark"
-            style={{ width: "100%", display: "block" }}
+            className={styles.img}
           />
         </div>
       )}
