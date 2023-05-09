@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { firebaseAuth } from "../service/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../Components/Button/Button";
 import Spinner from "../Components/Loaders/Spinner";
 import styles from "./AuthForm.module.css";
@@ -15,7 +15,6 @@ const SigninPage = () => {
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showFail, setShowFail] = useState(false);
   const [failMessage, setFailMessage] = useState("");
@@ -30,18 +29,13 @@ const SigninPage = () => {
   const handleSignin = (e) => {
     setLoading(true);
     e.preventDefault();
-    signInWithEmailAndPassword(firebaseAuth, input.email, input.password)
-      .then(() => {
-        setTimeout(() => {
-          setLoading(false);
-          navigate("/");
-        }, 500);
-      })
-      .catch((error) => {
-        setLoading(false);
+    signInWithEmailAndPassword(firebaseAuth, input.email, input.password).catch(
+      (error) => {
         setShowFail(true);
+        setLoading(false);
         setFailMessage(authFailMessageMap[error.code]);
-      });
+      }
+    );
   };
   if (loading)
     return (
