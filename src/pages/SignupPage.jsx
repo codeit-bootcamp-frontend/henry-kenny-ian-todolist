@@ -32,25 +32,24 @@ const SignupPage = () => {
       return;
     }
     setIsLoading(true);
-    await createUserWithEmailAndPassword(
-      firebaseAuth,
-      input.email,
-      input.password
-    )
-      .then(async (userCredential) => {
-        const user = userCredential.user;
-        await setDoc(doc(firestore, "users", user.uid), {
-          uid: user.uid,
-          ...input,
-        });
-        setIsLoading(false);
-        navigate("/");
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        setShowFail(true);
-        setFailMessage(authFailMessageMap[error.code]);
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        input.email,
+        input.password
+      );
+      const user = userCredential.user;
+      await setDoc(doc(firestore, "users", user.uid), {
+        uid: user.uid,
+        ...input,
       });
+      navigate("/");
+    } catch {
+      setShowFail(true);
+      setFailMessage(authFailMessageMap[error.code]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChangeInput = (e) => {
