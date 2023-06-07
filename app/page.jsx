@@ -32,13 +32,8 @@ const HomePage = () => {
   const [showDone, setShowDone] = useState(false);
 
   const progressPercentage = useMemo(() => {
-    let ret = 0;
-    if (todoItems) {
-      if (todoItems.length > 0)
-        ret = todoItems.filter((el) => el.isComplete).length / todoItems.length;
-      else ret = 0;
-    }
-    return ret;
+    if (!todoItems || todoItems.length === 0) return 0;
+    return todoItems.filter((el) => el.isComplete).length / todoItems.length;
   }, [todoItems, todos]);
 
   const handleClickOpenModal = (targetId) => {
@@ -84,11 +79,7 @@ const HomePage = () => {
   }, [todos]);
 
   useEffect(() => {
-    if (progressPercentage === 1) {
-      setShowDone(true);
-    } else {
-      setShowDone(false);
-    }
+    setShowDone(progressPercentage === 1);
   }, [progressPercentage]);
 
   if (!user) return null;
@@ -100,17 +91,16 @@ const HomePage = () => {
         >{`${user.displayName}님의 할일 목록`}</div>
         <ProgressBar progress={progressPercentage} />
         <ul className={styles.todolistContainer}>
-          {todoItems &&
-            todoItems.map((item) => (
-              <li key={item.id}>
-                <TodoListItem
-                  {...item}
-                  onClickCheckBox={handleClickCheckBox}
-                  onClickEdit={handleClickOpenModal}
-                  onClickDelete={handleDeleteItem}
-                />
-              </li>
-            ))}
+          {todoItems?.map((item) => (
+            <li key={item.id}>
+              <TodoListItem
+                {...item}
+                onClickCheckBox={handleClickCheckBox}
+                onClickEdit={handleClickOpenModal}
+                onClickDelete={handleDeleteItem}
+              />
+            </li>
+          ))}
         </ul>
         <div style={{ marginTop: "40px" }}>
           <Button buttonType="create" onClick={handleClickOpenModal} />

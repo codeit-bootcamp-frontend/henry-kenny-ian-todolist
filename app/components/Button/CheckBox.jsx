@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ThemeContext from "../../Contexts/ThemeContext";
 import styles from "./CheckBox.module.css";
 
-const CheckBox = ({ checked, onClick, itemId }) => {
+const CheckBox = ({ checked, onClick }) => {
   const { theme } = useContext(ThemeContext);
   const classPrefix = checked ? "concave" : "convex";
   const checkboxClass =
@@ -10,9 +10,7 @@ const CheckBox = ({ checked, onClick, itemId }) => {
   return (
     <button
       className={`${styles.checkbox} ${checkboxClass} ${theme}`}
-      onClick={() => {
-        onClick(itemId);
-      }}
+      onClick={onClick}
     >
       {checked && (
         <div className={styles.imgContainer}>

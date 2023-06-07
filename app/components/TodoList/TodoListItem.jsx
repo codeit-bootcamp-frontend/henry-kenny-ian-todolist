@@ -20,22 +20,12 @@ const TodoListItem = ({
   const textDecoration = isComplete ? "line-through" : "none";
   const textBoxClass =
     theme === "light" ? "concave-light-sm" : "concave-dark-md";
-  const handleEdit = () => {
-    onClickEdit(id);
-  };
 
   const [showButtons, setShowButtons] = useState(isMobile ? false : true);
   const variants = {
     open: { x: 0, width: "70%" },
     closed: { x: 0, width: "100%" },
     desktop: { x: 0, width: 638 },
-  };
-  const handleDelete = () => {
-    onClickDelete(id);
-  };
-
-  const handleClickCheckBox = (id) => {
-    onClickCheckBox(id);
   };
 
   const toggleShowButtonsOnMobile = () => {
@@ -61,9 +51,10 @@ const TodoListItem = ({
           // key="vweoub"
         >
           <CheckBox
-            onClick={handleClickCheckBox}
+            onClick={() => {
+              onClickCheckBox(id);
+            }}
             checked={isComplete}
-            itemId={id}
             keys="vbouwe"
           />
           <div
@@ -84,10 +75,22 @@ const TodoListItem = ({
         {showButtons && (
           <>
             <div className={styles.btnWrapper} key="qwvbip">
-              <Button buttonType="edit" onClick={handleEdit} key="pqmzb" />
+              <Button
+                buttonType="edit"
+                onClick={() => {
+                  onClickEdit(id);
+                }}
+                key="pqmzb"
+              />
             </div>
             <div className={styles.btnWrapper} key="qtyiuv">
-              <Button buttonType="delete" onClick={handleDelete} key="csyue" />
+              <Button
+                buttonType="delete"
+                onClick={() => {
+                  onClickDelete(id);
+                }}
+                key="csyue"
+              />
             </div>
           </>
         )}
