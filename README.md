@@ -1,4 +1,3 @@
-
 <h1 align="center">Todo List Bunny</h1>
 
 <div align="center">
@@ -16,13 +15,13 @@
 </div>
 
 ### Deploy Link
-https://todolist-bunny.netlify.app
 
+https://todolist-bunny.netlify.app
 
 ### Contributors
 
-| [🐇Henry](https://github.com/wooleejaan) | [🍑 Kenny](https://github.com/SeyoungCho) | [🥔 Ian](https://github.com/drizzle96) | 
-| ----------------------------------------- | ---------------------------------------- | ------------------------------------------ | 
+| [🐇Henry](https://github.com/wooleejaan) | [🍑 Kenny](https://github.com/SeyoungCho) | [🥔 Ian](https://github.com/drizzle96) |
+| ---------------------------------------- | ----------------------------------------- | -------------------------------------- |
 
 ### Tech Stacks
 
@@ -61,8 +60,6 @@ https://todolist-bunny.netlify.app
 **Others**<br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-
-
 ## UI/Design
 
 - neumorphic UI 디자인 적용
@@ -70,7 +67,7 @@ https://todolist-bunny.netlify.app
 ## Features
 
 - 로그인, 회원가입 기능
-- 반응형 레이아웃 
+- 반응형 레이아웃
   - 데스크탑/태블릿 : 768px 이상
   - 모바일 : 767px 이하, 최소 375px까지 지원
 - 할일 달성률을 프로그레스바로 표현
@@ -91,21 +88,24 @@ https://todolist-bunny.netlify.app
 - 프로그레스바 애니메이션 (Done 체크시 자연스럽게 늘어나도록)
 - 스와이프 기능: 모바일 버전에서 밀어서 삭제 버튼 보이기 (미는 건, 데스크탑에서는 드래그 + 모바일에서는 터치 스타트/엔드)
 
-## Screens/Components
+## Screens/components
 
 ### Header
+
 - PC
 
 ![image](https://user-images.githubusercontent.com/45449387/236660747-5b3a7442-d04f-4535-93c4-3beaaee1b8c4.png)
+
 - Mobile
 
 ![image](https://user-images.githubusercontent.com/45449387/236660782-27f08039-2222-4cc3-9b62-43192e368833.png)
 
-
 ### Main
+
 - PC
 
 ![image](https://user-images.githubusercontent.com/45449387/236660869-9815e9ce-eb5d-4ff3-8390-340ca0be569c.png)
+
 - Mobile
 
 ![image](https://user-images.githubusercontent.com/45449387/236660855-e7b1ea60-a9ef-4cf8-8821-ebb727a36388.png)
@@ -117,18 +117,18 @@ https://todolist-bunny.netlify.app
 ![image](https://user-images.githubusercontent.com/45449387/236661011-3d63ec28-3db5-4fe0-83bc-488baf191cc8.png)
 ![image](https://user-images.githubusercontent.com/45449387/236661097-5b24267d-d223-4cf6-be1c-96c51b285e14.png)
 
-
-- Mobile 
+- Mobile
 
 ![image](https://user-images.githubusercontent.com/45449387/236661031-791556fd-c49a-488f-a3b3-fc4087cacb7e.png)<br>
 ![image](https://user-images.githubusercontent.com/45449387/236661043-66c37452-31bc-498d-a347-595b54ceca24.png)
 
 ### Modals
+
 - PC
 
 ![image](https://user-images.githubusercontent.com/45449387/236661201-a2311663-a9ec-4ef7-bd84-62467acb352a.png)
 
-- Mobile 
+- Mobile
 
 ![image](https://user-images.githubusercontent.com/45449387/236661222-4de35d53-d844-4576-beea-6f80d22f282d.png)
 
@@ -145,13 +145,11 @@ https://todolist-bunny.netlify.app
 ### Dark Mode
 
 - PC
-![image](https://user-images.githubusercontent.com/45449387/236662106-9d08ce23-490c-4840-92f2-17ad15574342.png)
+  ![image](https://user-images.githubusercontent.com/45449387/236662106-9d08ce23-490c-4840-92f2-17ad15574342.png)
 
 - Mobile
 
 ![image](https://user-images.githubusercontent.com/45449387/236662155-95c3060c-f4d8-46da-b7b2-65ccd74c1c80.png)
-
-
 
 ## TODOS
 

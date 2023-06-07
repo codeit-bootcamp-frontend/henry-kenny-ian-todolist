@@ -1,0 +1,78 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+  padding-bottom: 90px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+}
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+}
+
+.todolistContainer {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  max-height: 500px;
+  padding: 30px 24px;
+  overflow-y: scroll;
+  width: fit-content;
+  margin: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  /* --x: 10deg;
+  --y: 10deg;
+  --_max-rotateY: 90deg;
+  --_max-rotateX: 90deg;
+  transform-style: preserve-3d;
+  transform: rotateY(
+      clamp(calc(var(--_max-rotateY) * -1), var(--y), var(--_max-rotateY))
+    )
+    rotateX(
+      clamp(calc(var(--_max-rotateX) * -1), var(--x), var(--_max-rotateX))
+    );
+  animation: rotate-y;
+  will-change: transform;
+  transition: transform 0.1s ease;
+  -webkit-animation: rotate-y 5s ease-in-out infinite;
+  animation: rotate-y 5s ease-in-out infinite; */
+}
+
+.todolistContainer::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+.todolistContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todolistContainer::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.todolistContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.521);
+}
+
+@media only screen and (max-width: 1024px) {
+  .todolistContainer {
+    width: 94%;
+    gap: 20px;
+  }
+}
+
+/* @keyframes rotate-y {
+  30% {
+    transform: rotateY(-10deg) rotateX(10deg);
+  }
+} */
